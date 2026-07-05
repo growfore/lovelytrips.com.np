@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Trips - Coming Soon</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2c3e50;
+            padding: 20px;
+        }
+
+        /* Container Card */
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Logo Styling */
+        .logo {
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #1b4d3e;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .countdown-item {
+            background: #1b4d3e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            min-width: 80px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .countdown-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Notify Form */
+        .notify-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 450px;
+            margin: 0 auto 20px auto;
+        }
+
+        @media (min-width: 480px) {
+            .notify-form {
+                flex-direction: row;
+                gap: 0;
+                border: 2px solid #1b4d3e;
+                border-radius: 30px;
+                overflow: hidden;
+                background: #fff;
+            }
+        }
+
+        .notify-input {
+            padding: 15px 20px;
+            border: 2px solid #1b4d3e;
+            border-radius: 30px;
+            outline: none;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        @media (min-width: 480px) {
+            .notify-input {
+                border: none;
+                border-radius: 0;
+            }
+        }
+
+        .notify-btn {
+            background: #1b4d3e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        @media (min-width: 480px) {
+            .notify-btn {
+                border-radius: 0;
+            }
+        }
+
+        .notify-btn:hover {
+            background: #12352b;
+        }
+
+        /* Footer Socials */
+        .footer-text {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="lovely-nepal-treks.jpeg" alt="Lovely Trips - Enchanting Nepal Logo" class="logo">
+
+        <h1>Something Exciting is Coming!</h1>
+        <p class="subtitle">We are busy crafting the ultimate travel experiences for enchanting Nepal. Get ready to explore the Himalayas like never before.</p>
+
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">30</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">23</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">59</span>
+                <span class="countdown-label">Mins</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">59</span>
+                <span class="countdown-label">Secs</span>
+            </div>
+        </div>
+
+        <form class="notify-form" onsubmit="event.preventDefault(); alert('Thank you! We will notify you when we launch.');">
+            <input type="email" class="notify-input" placeholder="Enter your email address" required>
+            <button type="submit" class="notify-btn">Notify Me</button>
+        </form>
+
+        <p class="footer-text">&copy; 2026 Lovely Trips. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Set your target launch date here (e.g., 30 days from now)
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 30); 
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.querySelector(".countdown").innerHTML = "<h3>We have Launched!</h3>";
+            }
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
