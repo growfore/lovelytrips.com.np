@@ -1,5 +1,4 @@
 import CountdownTimer from "@/components/countdown-timer";
-import NotifyForm from "@/components/notify-form";
 
 export default function Home() {
   return (
@@ -21,8 +20,6 @@ export default function Home() {
         </p>
 
         <CountdownTimer />
-
-        <NotifyForm />
 
         <p className="text-xs text-foreground/40">
           &copy; {new Date().getFullYear()} Lovely Trips. All rights reserved.
