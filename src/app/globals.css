@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: oklch(0.98 0.01 145);
+  --color-foreground: oklch(0.2 0.04 145);
+  --color-primary: oklch(0.45 0.12 155);
+  --color-primary-light: oklch(0.55 0.1 155);
+  --color-accent: oklch(0.7 0.15 85);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
