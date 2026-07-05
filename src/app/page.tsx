@@ -5,9 +5,11 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-gradient-to-br from-background to-primary-light/30 px-4">
       <main className="flex w-full max-w-lg flex-col items-center gap-8 rounded-2xl bg-white/90 px-6 py-12 text-center shadow-xl backdrop-blur sm:px-10 sm:py-16 sm:gap-10">
-        <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center">
-          <span className="text-3xl">🏔️</span>
-        </div>
+        <img
+          src="/lovely-nepal-treks.jpeg"
+          alt="Lovely Trips"
+          className="h-24 w-auto sm:h-28"
+        />
 
         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Coming Soon
