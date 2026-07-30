@@ -1,7 +1,7 @@
 export function ContactForm() {
   return (
-    <section className="relative min-h-[40vh] py-24 px-6 bg-[url(/annapurna-range-as-seen-from-pokhara.jpg)] bg-cover bg-center before:absolute before:inset-0 before:bg-gradient-to-b before:from-white before:from-10% before:via-transparent before:via-30% before:to-black/70 before:to-90% flex items-center justify-center -mb-42">
-      <div className="relative z-10 max-w-md mx-auto text-center text-white">
+    <section className="relative min-h-[80vh] py-24 px-6 bg-[url(/annapurna-range-as-seen-from-pokhara.jpg)] bg-cover bg-center before:absolute before:inset-0 before:bg-gradient-to-b before:from-white before:from-10% before:via-transparent before:via-30% before:to-black/70 before:to-90% flex items-center justify-center -mb-42">
+      {/*<div className="relative z-10 max-w-md mx-auto text-center text-white">
         <h2 className="font-script text-3xl md:text-4xl mb-8">
           &mdash; Contact Us &mdash;
         </h2>
@@ -23,7 +23,7 @@ export function ContactForm() {
             Submit
           </button>
         </form>
-      </div>
+      </div>*/}
     </section>
   );
 }
