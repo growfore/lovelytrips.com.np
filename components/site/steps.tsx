@@ -4,8 +4,8 @@ export function Steps() {
   return (
     <section className="relative py-20 px-6 md:px-16 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_40%,transparent_100%)]">
-        <img src="/steps-mobile.png" alt="" className="h-full w-full object-contain object-center md:hidden" />
-        <img src="/steps.png" alt="" className="h-full w-full object-contain object-center max-md:hidden" />
+        <img src="/steps-mobile.webp" alt="" className="h-full w-full object-contain object-center md:hidden" />
+        <img src="/steps.webp" alt="" className="h-full w-full object-contain object-center max-md:hidden" />
       </div>
 
       <SectionTitle>How to Join a Trip</SectionTitle>

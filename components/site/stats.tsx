@@ -1,6 +1,6 @@
 export function Stats() {
   return (
-    <section className="relative py-16 md:py-40 px-4 md:px-16 bg-[url(/assets/stats-bg.jpg)] bg-no-repeat bg-cover before:absolute before:inset-0 before:bg-black/40 [mask-image:url(/section-mask.png)] [-webkit-mask-image:url(/section-mask.png)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
+    <section className="relative py-16 md:py-40 px-4 md:px-16 bg-[url(/assets/stats-bg.webp)] bg-no-repeat bg-cover before:absolute before:inset-0 before:bg-black/40 [mask-image:url(/section-mask.webp)] [-webkit-mask-image:url(/section-mask.webp)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl mb-8 md:mb-16 divider-dash inline-flex items-center justify-center w-full text-white">
         {/*<h2 className="text-4xl md:text-5xl mb-16 divider-dash inline-flex items-center justify-center w-full text-white">*/}

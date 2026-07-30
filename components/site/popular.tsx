@@ -13,11 +13,11 @@ const items = [
 export function Popular() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    "/assets/popular-bg.jpg",
-    "/assets/stats-bg.jpg",
-    "/assets/trip1.jpg",
-    "/assets/trip2.jpg",
-    "/assets/trip3.jpg",
+    "/assets/popular-bg.webp",
+    "/assets/stats-bg.webp",
+    "/assets/trip1.webp",
+    "/assets/trip2.webp",
+    "/assets/trip3.webp",
   ];
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function Popular() {
   }, [currentImage]);
 
   return (
-    <section className="py-50 relative min-h-[100vh] md:min-h-[110vh] bg-cover bg-center before:absolute before:inset-0 before:bg-black/60 [mask-image:url(/section-mask.png)] [-webkit-mask-image:url(/section-mask.png)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat] flex items-center justify-center">
+    <section className="py-50 relative min-h-[100vh] md:min-h-[110vh] bg-cover bg-center before:absolute before:inset-0 before:bg-black/60 [mask-image:url(/section-mask.webp)] [-webkit-mask-image:url(/section-mask.webp)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat] flex items-center justify-center">
       <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out">
         {images.map((image, index) => (
           <img

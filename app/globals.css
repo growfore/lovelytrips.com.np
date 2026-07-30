@@ -67,8 +67,8 @@
 }
 
 @utility mask-organic {
-  mask-image: url(/image-mask.png);
-  -webkit-mask-image: url(/image-mask.png);
+  mask-image: url(/image-mask.webp);
+  -webkit-mask-image: url(/image-mask.webp);
   mask-size: 100% 100%;
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;

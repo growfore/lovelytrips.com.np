@@ -2,12 +2,12 @@ import { SectionTitle } from "@/components/site/section-title";
 import Link from "next/link";
 
 const images = [
-  "/gallery-image.png",
-  "/assets/gallery1.jpg",
-  "/assets/gallery2.jpg",
-  "/assets/gallery3.jpg",
-  "/assets/gallery4.jpg",
-  "/assets/gallery5.jpg",
+  "/gallery-image.webp",
+  "/assets/gallery1.webp",
+  "/assets/gallery2.webp",
+  "/assets/gallery3.webp",
+  "/assets/gallery4.webp",
+  "/assets/gallery5.webp",
 ];
 
 export default function GalleryPage() {

@@ -1,10 +1,10 @@
 import { SectionTitle } from "./section-title";
 
-const aboutImg = "/assets/about.jpg";
+const aboutImg = "/assets/about.webp";
 
 export function About() {
   return (
-    <section id="about" className="relative py-20 px-6 md:px-16 before:absolute before:inset-0 before:bg-[url(/about-us-section-background.png)] before:bg-cover before:bg-center before:grayscale">
+    <section id="about" className="relative py-20 px-6 md:px-16 before:absolute before:inset-0 before:bg-[url(/about-us-section-background.webp)] before:bg-cover before:bg-center before:grayscale">
       <div className="relative z-10">
         <SectionTitle>About Us</SectionTitle>
         <div className="max-w-5xl mx-auto grid md:grid-cols-[1.3fr_1fr] gap-12 items-center">

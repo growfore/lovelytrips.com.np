@@ -12,7 +12,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="relative  min-h-[40vh] flex items-end -mt-32">
-      <div className="absolute inset-0 bg-white [mask-image:url(/footer-mask.png)] [-webkit-mask-image:url(/footer-mask.png)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]" />
+      <div className="absolute inset-0 bg-white [mask-image:url(/footer-mask.webp)] [-webkit-mask-image:url(/footer-mask.webp)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]" />
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-8 flex flex-col items-center gap-6">
         <div className="flex items-center gap-3">
           {socials.map((s) => (

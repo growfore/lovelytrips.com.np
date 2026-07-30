@@ -4,25 +4,25 @@ import { useEffect, useRef, useState } from "react";
 
 const reviews = [
   {
-    img: "/assets/hiker.jpg",
+    img: "/assets/hiker.webp",
     name: "Charles",
     trip: "Annapurna Circuit",
     text: "I signed up alone for the beginner trip and came home with eight new friends and an obsession. The guides were patient, the food was better than most restaurants, and I honestly cried a little on the summit. Already booked my next one.",
   },
   {
-    img: "/assets/testimonial.jpg",
+    img: "/assets/testimonial.webp",
     name: "Emma R.",
     trip: "Lakes Traverse, June",
     text: "The most beautiful week of my life. Every morning I woke up to views I thought only existed in paintings. Our guide knew every plant, bird, and mountain by name.",
   },
   {
-    img: "/assets/hiker.jpg",
+    img: "/assets/hiker.webp",
     name: "James K.",
     trip: "Everest View Trek",
     text: "I was nervous about my first high-altitude trek but the preparation guide and constant support made it feel easy. Reaching 5,000m and seeing the Himalayas stretch forever was worth every step.",
   },
   {
-    img: "/assets/about.jpg",
+    img: "/assets/about.webp",
     name: "Sarah M.",
     trip: "Langtang Valley",
     text: "What stood out was how personal everything felt. It wasn't a tour — it was an adventure with friends. The lodge stays, the local food, the evening stories around the fire.",
@@ -40,7 +40,7 @@ export function Testimonial() {
   }, []);
 
   return (
-    <section className="relative py-16 md:py-40 px-4 md:px-16 bg-[url(/annapurna-range.webp)] bg-no-repeat bg-cover [mask-image:url(/footer-mask.png)] [-webkit-mask-image:url(/footer-mask.png)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
+    <section className="relative py-16 md:py-40 px-4 md:px-16 bg-[url(/annapurna-range.webp)] bg-no-repeat bg-cover [mask-image:url(/footer-mask.webp)] [-webkit-mask-image:url(/footer-mask.webp)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl divider-dash inline-flex items-center justify-center w-full mb-8 text-white text-shadow-2xs">

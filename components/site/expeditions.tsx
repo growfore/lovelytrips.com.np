@@ -1,10 +1,10 @@
 import { SectionTitle } from "./section-title";
 import { TripRow } from "./trip-row";
 
-const trip1 = "/assets/trip1.jpg";
-const trip2 = "/assets/trip2.jpg";
-const trip3 = "/assets/trip3.jpg";
-const trip4 = "/assets/trip4.jpg";
+const trip1 = "/assets/trip1.webp";
+const trip2 = "/assets/trip2.webp";
+const trip3 = "/assets/trip3.webp";
+const trip4 = "/assets/trip4.webp";
 
 export function Expeditions() {
   return (
