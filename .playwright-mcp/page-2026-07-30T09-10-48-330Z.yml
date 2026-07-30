@@ -1,0 +1,179 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - img "Hiker celebrating on mountain summit" [ref=e5]
+      - navigation [ref=e6]:
+        - link "About us" [ref=e7] [cursor=pointer]:
+          - /url: "#about"
+        - link "Treks" [ref=e8] [cursor=pointer]:
+          - /url: "#about"
+        - generic [ref=e9]: Lovely Trips
+        - link "Reviews" [ref=e12] [cursor=pointer]:
+          - /url: "#contact"
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e14]:
+        - img [ref=e15]:
+          - generic [ref=e16]: Hikes into the Mountains
+        - paragraph [ref=e17]: — guided treks for every level —
+    - generic [ref=e19]:
+      - heading "About Us" [level=2] [ref=e20]
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Lovely Trips is a small collective of professional mountain guides, alpinists, and storytellers who spend more days above tree line than in the office. For over a decade we've been leading travelers of every experience level into ranges from the Dolomites to the Caucasus.
+          - paragraph [ref=e25]: Every route we run is scouted personally, every group is capped at twelve people, and every meal on the trail is cooked from scratch. What you get is a real expedition — not a tour — with the safety and comfort of a team that has done this hundreds of times before.
+          - paragraph [ref=e26]: Come as a stranger, leave with a rope team.
+        - img "Hiker resting by turquoise mountain lake" [ref=e28]
+    - generic [ref=e29]:
+      - heading "Our Expeditions" [level=2] [ref=e30]
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - img "Hikes for Beginners" [ref=e35]
+          - generic [ref=e36]:
+            - heading "Hikes for Beginners" [level=3] [ref=e37]
+            - paragraph [ref=e38]: No experience needed. Gentle elevation, short daily stages, and a guide who explains everything — from lacing your boots to reading a weather window. The perfect first taste of high country.
+            - button "Learn More" [ref=e39]
+        - generic [ref=e40]:
+          - img "Trips to Lakes" [ref=e42]
+          - generic [ref=e43]:
+            - heading "Trips to Lakes" [level=3] [ref=e44]
+            - paragraph [ref=e45]: Multi-day loops that link the most beautiful alpine lakes in the range. Swim at 2,400 meters, sleep beside water so still it doubles the sky, and photograph reflections that no phone can properly hold.
+            - button "Learn More" [ref=e46]
+        - generic [ref=e47]:
+          - img "Hikes with a Tent" [ref=e49]
+          - generic [ref=e50]:
+            - heading "Hikes with a Tent" [level=3] [ref=e51]
+            - paragraph [ref=e52]: Fully autonomous expeditions — everything you need on your back, everything you leave behind is a footprint. We teach you to pitch, cook, and navigate as you go. Come home a different kind of confident.
+            - button "Learn More" [ref=e53]
+        - generic [ref=e54]:
+          - img "Hikes to the Summit" [ref=e56]
+          - generic [ref=e57]:
+            - heading "Hikes to the Summit" [level=3] [ref=e58]
+            - paragraph [ref=e59]: Peak-bagging routes for hikers ready for a real objective. Technical scree, exposed ridgelines, and the specific quiet that only exists on a summit before sunrise. Two guides per group, always.
+            - button "Learn More" [ref=e60]
+    - generic [ref=e62]:
+      - heading "Why Travelers Choose Us" [level=2] [ref=e63]
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]: "567"
+          - generic [ref=e68]: Happy Travelers
+        - generic [ref=e69]:
+          - generic [ref=e70]: "4095"
+          - generic [ref=e71]: Trail Kilometers
+        - generic [ref=e72]:
+          - generic [ref=e73]: "100"
+          - generic [ref=e74]: Routes Scouted
+        - generic [ref=e75]:
+          - generic [ref=e76]: "120"
+          - generic [ref=e77]: Summits Reached
+    - generic [ref=e78]:
+      - heading "How to Join a Trip" [level=2] [ref=e79]
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic [ref=e84]: "01"
+          - generic [ref=e85]: Pick a Trip
+          - generic [ref=e86]: Browse our routes and choose one matching your fitness and dates.
+        - generic [ref=e87]:
+          - generic [ref=e88]: "02"
+          - generic [ref=e89]: Book Your Spot
+          - generic [ref=e90]: A small deposit reserves your place in the group of twelve.
+        - generic [ref=e91]:
+          - generic [ref=e92]: "03"
+          - generic [ref=e93]: Get Ready
+          - generic [ref=e94]: We send a gear list, training plan, and a call with your lead guide.
+        - generic [ref=e95]:
+          - generic [ref=e96]: "04"
+          - generic [ref=e97]: Arrive at Base
+          - generic [ref=e98]: Meet the group at the trailhead town the night before departure.
+        - generic [ref=e99]:
+          - generic [ref=e100]: "05"
+          - generic [ref=e101]: Walk Into the Wild
+          - generic [ref=e102]: Days of trail, evenings of stories, nights under real stars.
+        - generic [ref=e103]:
+          - generic [ref=e104]: "06"
+          - generic [ref=e105]: Come Home Changed
+          - generic [ref=e106]: Photos, muscle memory, and a new rope team for life.
+    - generic [ref=e107]:
+      - generic [ref=e109]:
+        - button [ref=e110]
+        - button [ref=e111]
+        - button [ref=e112]
+        - button [ref=e113]
+        - button [ref=e114]
+      - generic [ref=e115]:
+        - heading "Popular Expeditions" [level=2] [ref=e116]
+        - paragraph [ref=e118]: From weekend introductions to two-week traverses across the high country — these are the trips travelers ask us about most, month after month. Each route is led by a certified mountain guide and includes all meals, permits, and equipment.
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - img "Guided Hikes" [ref=e121]
+            - generic [ref=e122]: Guided Hikes
+            - paragraph [ref=e123]: Single-day and overnight hikes with experienced local guides who know every ridge and meadow.
+          - generic [ref=e124]:
+            - img "Wild Camp" [ref=e125]
+            - generic [ref=e126]: Wild Camp
+            - paragraph [ref=e127]: Multi-day tent-based expeditions deep into remote valleys, where the only sounds are wind and river.
+          - generic [ref=e128]:
+            - img "Summits" [ref=e129]
+            - generic [ref=e130]: Summits
+            - paragraph [ref=e131]: Peak-bagging routes for hikers ready to push beyond the treeline and claim a real objective.
+          - generic [ref=e132]:
+            - img "Waterfall Treks" [ref=e133]
+            - generic [ref=e134]: Waterfall Treks
+            - paragraph [ref=e135]: Trails that follow rushing rivers to hidden cascades, with swimming holes along the way.
+          - generic [ref=e136]:
+            - img "Cultural Trails" [ref=e137]
+            - generic [ref=e138]: Cultural Trails
+            - paragraph [ref=e139]: Routes through ancient villages, monasteries, and farmland that reveal the region's living heritage.
+        - button "View All Routes" [ref=e140]
+    - generic [ref=e141]:
+      - heading "Photo Gallery" [level=2] [ref=e142]
+      - link "View Full Gallery" [ref=e147] [cursor=pointer]:
+        - /url: /gallery
+    - generic [ref=e150]:
+      - heading "Reviews from the Trail" [level=2] [ref=e151]
+      - generic [ref=e153]:
+        - img "Charles" [ref=e155]
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: “I signed up alone for the beginner trip and came home with eight new friends and an obsession. The guides were patient, the food was better than most restaurants, and I honestly cried a little on the summit. Already booked my next one.”
+          - generic [ref=e158]: — Charles, Annapurna Circuit
+      - generic [ref=e159]:
+        - button [ref=e160]
+        - button [ref=e161]
+        - button [ref=e162]
+        - button [ref=e163]
+    - generic [ref=e164]:
+      - heading "Perks & Rewards" [level=2] [ref=e165]
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - img "Bring a Friend" [ref=e170]
+          - generic [ref=e171]: Bring a Friend
+          - generic [ref=e172]: Refer one paying traveler and get 50% off your own trip — the more you bring, the more you save.
+        - generic [ref=e173]:
+          - img "Last-Minute Deal" [ref=e175]
+          - generic [ref=e176]: Last-Minute Deal
+          - generic [ref=e177]: Grab unfilled spots at half price when a departure date is just around the corner.
+        - generic [ref=e178]:
+          - img "Early Bird Pricing" [ref=e180]
+          - generic [ref=e181]: Early Bird Pricing
+          - generic [ref=e182]: Book at least 60 days ahead and lock in a discounted rate before prices go up.
+        - generic [ref=e183]:
+          - img "Loyalty Perk" [ref=e185]
+          - generic [ref=e186]: Loyalty Perk
+          - generic [ref=e187]: Every third trip with us is completely free — our way of saying thanks for coming back.
+      - button "Learn More" [ref=e189]
+    - generic [ref=e191]:
+      - heading "— Contact Us —" [level=2] [ref=e192]
+      - generic [ref=e193]:
+        - textbox "Your Name" [ref=e194]
+        - textbox "Your Phone" [ref=e195]
+        - button "Submit" [ref=e196]
+    - contentinfo [ref=e197]:
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e201]: +380 00 000 00 00
+          - generic [ref=e205]: +380 00 000 00 00
+        - generic [ref=e210]: Lovely Trips
+        - generic [ref=e214]:
+          - generic [ref=e215]: vsevgory@gmail.com
+          - generic [ref=e220]: vsevgorycom
+  - button "Open Next.js Dev Tools" [ref=e230] [cursor=pointer]

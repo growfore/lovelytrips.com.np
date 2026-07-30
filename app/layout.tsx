@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Caveat, Poppins } from "next/font/google";
+import { Poppins, Satisfy } from "next/font/google";
 import "./globals.css";
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-script",
-});
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-body",
+});
+
+const satisfy = Satisfy({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-satisfy",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${caveat.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${satisfy.variable}`}>
       <body>{children}</body>
     </html>
   );
