@@ -1,0 +1,342 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - 'img "Annapurna Circuit Trek: 7-Day Itinerary" [ref=f1e5]'
+      - navigation [ref=f1e6]:
+        - link "About us" [ref=f1e7] [cursor=pointer]:
+          - /url: "#about"
+        - link "Treks" [ref=f1e8] [cursor=pointer]:
+          - /url: "#about"
+        - generic [ref=f1e9]: Lovely Trips
+        - link "Reviews" [ref=f1e12] [cursor=pointer]:
+          - /url: "#contact"
+        - link "Contact" [ref=f1e13] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=f1e15]:
+        - 'heading "Annapurna Circuit Trek: 7-Day Itinerary" [level=1] [ref=f1e16]'
+        - generic [ref=f1e17]:
+          - generic [ref=f1e18]: 7 Days
+          - generic [ref=f1e19]: EASY
+          - generic [ref=f1e20]: $620 – $850
+          - generic [ref=f1e21]: 5,416 m (17,769 ft)
+    - generic [ref=f1e24]:
+      - paragraph [ref=f1e26]: The Annapurna Circuit Trek is one of Nepal's most iconic trekking routes, taking you through lush forests, traditional villages, alpine landscapes, and across the famous Thorong La Pass (5,416 m). This 14-day itinerary offers a balanced pace with proper acclimatization for a safe and enjoyable journey.
+      - 'img "Annapurna Circuit Trek: 7-Day Itinerary" [ref=f1e28]'
+    - generic [ref=f1e30]:
+      - heading "Highlights" [level=2] [ref=f1e31]
+      - generic [ref=f1e33]:
+        - list [ref=f1e34]:
+          - listitem [ref=f1e35]:
+            - text: ✦
+            - paragraph [ref=f1e36]: Cross the famous Thorong La Pass (5,416 m).
+          - listitem [ref=f1e37]:
+            - text: ✦
+            - paragraph [ref=f1e38]: Explore the beautiful mountain village of Manang.
+          - listitem [ref=f1e39]:
+            - text: ✦
+            - paragraph [ref=f1e40]: Visit the sacred pilgrimage site of Muktinath.
+          - listitem [ref=f1e41]:
+            - text: ✦
+            - paragraph [ref=f1e42]: Experience dramatic Himalayan landscapes and diverse ecosystems.
+          - listitem [ref=f1e43]:
+            - text: ✦
+            - paragraph [ref=f1e44]: Enjoy breathtaking views of the Annapurna, Dhaulagiri, and surrounding peaks.
+        - paragraph
+    - generic [ref=f1e46]:
+      - heading "About This Trek" [level=2] [ref=f1e47]
+      - generic [ref=f1e49]:
+        - paragraph [ref=f1e50]:
+          - text: The highlight of the trek is crossing
+          - strong [ref=f1e51]: Thorong La Pass (5,416 m)
+          - text: ", one of the highest trekking passes in the world. Along the way, you'll pass through culturally rich villages inhabited by Gurung, Thakali, and Manangi communities, each with unique traditions, architecture, and hospitality. The route also leads to the sacred pilgrimage site of"
+          - strong [ref=f1e52]: Muktinath
+          - text: ", revered by both Hindus and Buddhists."
+        - paragraph [ref=f1e53]: This 7-day express itinerary is designed for trekkers who have limited time but still want to experience the most iconic sections of the Annapurna Circuit. By combining scenic drives with carefully planned trekking days, the itinerary captures the essence of this world-famous route while maintaining a comfortable and rewarding adventure.
+    - generic [ref=f1e55]:
+      - heading "Trip Details" [level=2] [ref=f1e56]
+      - generic [ref=f1e58]:
+        - generic [ref=f1e59]:
+          - generic [ref=f1e60]: Duration
+          - generic [ref=f1e61]: 7 Days
+        - generic [ref=f1e62]:
+          - generic [ref=f1e63]: Difficulty
+          - generic [ref=f1e64]: EASY
+        - generic [ref=f1e65]:
+          - generic [ref=f1e66]: Max Altitude
+          - generic [ref=f1e67]: 5,416 m (17,769 ft)
+        - generic [ref=f1e68]:
+          - generic [ref=f1e69]: Best Season
+          - generic [ref=f1e70]: Spring (March–May) & Autumn (Sept–Nov)
+        - generic [ref=f1e71]:
+          - generic [ref=f1e72]: Group Size
+          - generic [ref=f1e73]: Up to 12
+        - generic [ref=f1e74]:
+          - generic [ref=f1e75]: Transportation
+          - generic [ref=f1e76]: Bus, Suv, Helicopter,etc.
+        - generic [ref=f1e77]:
+          - generic [ref=f1e78]: Meals
+          - generic [ref=f1e79]: All Meals Inclusive expect snacks
+        - generic [ref=f1e80]:
+          - generic [ref=f1e81]: Meeting Point
+          - generic [ref=f1e82]: Kathmandu
+        - generic [ref=f1e83]:
+          - generic [ref=f1e84]: Drop-off Point
+          - generic [ref=f1e85]: Kathmandu
+        - generic [ref=f1e86]:
+          - generic [ref=f1e87]: Accommodations
+          - generic [ref=f1e88]: Teahouse, Lodges, Hotels (upto 3 star)
+        - generic [ref=f1e89]:
+          - generic [ref=f1e90]: Locations
+          - generic [ref=f1e91]: Kathmandu, Manang, Pokhara
+    - generic [ref=f1e93]:
+      - heading "Itinerary" [level=2] [ref=f1e94]
+      - paragraph [ref=f1e96]: Day-by-day breakdown of your 7 days adventure
+      - generic [ref=f1e97]:
+        - generic [ref=f1e98]:
+          - 'button "01 Day 1: Kathmandu to Manang" [ref=f1e99] [cursor=pointer]':
+            - generic [ref=f1e100]: "01"
+            - generic [ref=f1e101]: "Day 1: Kathmandu to Manang"
+          - generic [ref=f1e105]:
+            - generic [ref=f1e106]:
+              - list [ref=f1e107]:
+                - listitem [ref=f1e108]:
+                  - text: —
+                  - paragraph [ref=f1e109]: Drive from Kathmandu to Besisahar.
+                - listitem [ref=f1e110]:
+                  - text: —
+                  - paragraph [ref=f1e111]: Continue by 4WD jeep through Chame to Manang.
+                - listitem [ref=f1e112]:
+                  - text: —
+                  - paragraph [ref=f1e113]: Explore Manang village in the evening.
+                - listitem [ref=f1e114]:
+                  - text: —
+                  - paragraph [ref=f1e115]: Overnight in Manang (3,540 m).
+              - paragraph
+            - 'img "Kathmandu:: Kathmandu is the capital and largest city of Nepal, serving as the nation''s primary political, economic, and cultural heart. It sits in a bowl-shaped valley surrounded by hills at an elevation of about 1,400 meters above sea level." [ref=f1e118]'
+        - 'button "02 Day 2: Acclimatization in Manang" [ref=f1e120] [cursor=pointer]':
+          - generic [ref=f1e121]: "02"
+          - generic [ref=f1e122]: "Day 2: Acclimatization in Manang"
+        - 'button "03 Day 3: Manang to Yak Kharka" [ref=f1e127] [cursor=pointer]':
+          - generic [ref=f1e128]: "03"
+          - generic [ref=f1e129]: "Day 3: Manang to Yak Kharka"
+        - 'button "04 Day 4: Yak Kharka to Thorong Phedi" [ref=f1e134] [cursor=pointer]':
+          - generic [ref=f1e135]: "04"
+          - generic [ref=f1e136]: "Day 4: Yak Kharka to Thorong Phedi"
+        - 'button "05 Day 5: Thorong Phedi to Muktinath via Thorong La Pass" [ref=f1e141] [cursor=pointer]':
+          - generic [ref=f1e142]: "05"
+          - generic [ref=f1e143]: "Day 5: Thorong Phedi to Muktinath via Thorong La Pass"
+        - 'button "06 Day 6: Muktinath to Pokhara" [ref=f1e148] [cursor=pointer]':
+          - generic [ref=f1e149]: "06"
+          - generic [ref=f1e150]: "Day 6: Muktinath to Pokhara"
+        - 'button "07 Day 7: Pokhara to Kathmandu" [ref=f1e155] [cursor=pointer]':
+          - generic [ref=f1e156]: "07"
+          - generic [ref=f1e157]: "Day 7: Pokhara to Kathmandu"
+    - generic [ref=f1e161]:
+      - heading "Altitude Profile" [level=2] [ref=f1e162]
+      - paragraph [ref=f1e164]: Track the elevation gain and loss throughout your journey
+      - img [ref=f1e166]:
+        - generic [ref=f1e169]:
+          - generic [ref=f1e171]: Kathmandu
+          - generic [ref=f1e172]: 1400m
+        - generic [ref=f1e173]:
+          - generic [ref=f1e175]: Manang
+          - generic [ref=f1e176]: 3540m
+        - generic [ref=f1e177]:
+          - generic [ref=f1e179]: Acclimatization…
+          - generic [ref=f1e180]: 4600m
+        - generic [ref=f1e181]:
+          - generic [ref=f1e183]: Yak Kharka
+          - generic [ref=f1e184]: 4050m
+        - generic [ref=f1e185]:
+          - generic [ref=f1e187]: Thorang Phedi
+          - generic [ref=f1e188]: 4450m
+        - generic [ref=f1e189]:
+          - generic [ref=f1e191]: 5416m
+          - generic [ref=f1e192]: Thorang La Pass
+        - generic [ref=f1e193]:
+          - generic [ref=f1e195]: Muktinath
+          - generic [ref=f1e196]: 3760m
+        - generic [ref=f1e197]:
+          - generic [ref=f1e199]: Pokhara
+          - generic [ref=f1e200]: 822m
+        - generic [ref=f1e201]:
+          - generic [ref=f1e203]: Kathmandu
+          - generic [ref=f1e204]: 1400m
+    - generic [ref=f1e208]:
+      - heading "Pricing" [level=2] [ref=f1e209]
+      - paragraph [ref=f1e210]: $620 – $850 per person
+      - generic [ref=f1e211]:
+        - heading "Price Breakdown" [level=2] [ref=f1e212]
+        - table [ref=f1e213]:
+          - rowgroup [ref=f1e217]:
+            - row [ref=f1e218]:
+              - columnheader [ref=f1e219]:
+                - paragraph [ref=f1e220]: Group Size
+              - columnheader [ref=f1e221]:
+                - paragraph [ref=f1e222]: Price Per Person
+            - row [ref=f1e223]:
+              - cell [ref=f1e224]:
+                - paragraph [ref=f1e225]: 1 Person
+              - cell [ref=f1e226]:
+                - paragraph [ref=f1e227]: USD 850
+            - row [ref=f1e228]:
+              - cell [ref=f1e229]:
+                - paragraph [ref=f1e230]: 2–3 People
+              - cell [ref=f1e231]:
+                - paragraph [ref=f1e232]: USD 750
+            - row [ref=f1e233]:
+              - cell [ref=f1e234]:
+                - paragraph [ref=f1e235]: 4–6 People
+              - cell [ref=f1e236]:
+                - paragraph [ref=f1e237]: USD 680
+            - row [ref=f1e238]:
+              - cell [ref=f1e239]:
+                - paragraph [ref=f1e240]: 7–10 People
+              - cell [ref=f1e241]:
+                - paragraph [ref=f1e242]: USD 620
+            - row [ref=f1e243]:
+              - cell [ref=f1e244]:
+                - paragraph [ref=f1e245]: 11+ People
+              - cell [ref=f1e246]:
+                - paragraph [ref=f1e247]: Contact Us for a Custom Quote
+        - heading "Optional Add-ons" [level=3] [ref=f1e248]
+        - table [ref=f1e249]:
+          - rowgroup [ref=f1e253]:
+            - row [ref=f1e254]:
+              - columnheader [ref=f1e255]:
+                - paragraph [ref=f1e256]: Service
+              - columnheader [ref=f1e257]:
+                - paragraph [ref=f1e258]: Price
+            - row [ref=f1e259]:
+              - cell [ref=f1e260]:
+                - paragraph [ref=f1e261]: Single Room Supplement (where available)
+              - cell [ref=f1e262]:
+                - paragraph [ref=f1e263]: USD 120
+            - row [ref=f1e264]:
+              - cell [ref=f1e265]:
+                - paragraph [ref=f1e266]: Private Jeep Upgrade
+              - cell [ref=f1e267]:
+                - paragraph [ref=f1e268]: From USD 180
+            - row [ref=f1e269]:
+              - cell [ref=f1e270]:
+                - paragraph [ref=f1e271]: Porter (Additional)
+              - cell [ref=f1e272]:
+                - paragraph [ref=f1e273]: USD 180
+            - row [ref=f1e274]:
+              - cell [ref=f1e275]:
+                - paragraph [ref=f1e276]: Kathmandu Hotel (per night)
+              - cell [ref=f1e277]:
+                - paragraph [ref=f1e278]: From USD 40
+            - row [ref=f1e279]:
+              - cell [ref=f1e280]:
+                - paragraph [ref=f1e281]: Pokhara Hotel (per night)
+              - cell [ref=f1e282]:
+                - paragraph [ref=f1e283]: From USD 35
+            - row [ref=f1e284]:
+              - cell [ref=f1e285]:
+                - paragraph [ref=f1e286]: Domestic Flight (Optional)
+              - cell [ref=f1e287]:
+                - paragraph [ref=f1e288]: At Cost
+        - paragraph [ref=f1e289]:
+          - strong [ref=f1e290]: "Note:"
+          - text: Prices are indicative and may vary depending on the trekking season, group size, accommodation preferences, and transportation availability. Contact us for the latest quotation and customized packages.
+      - button "Book This Trip" [ref=f1e292]
+    - generic [ref=f1e293]:
+      - heading "What's Included" [level=2] [ref=f1e294]
+      - generic [ref=f1e296]:
+        - generic [ref=f1e297]:
+          - heading "Included" [level=3] [ref=f1e298]
+          - generic [ref=f1e301]:
+            - list [ref=f1e302]:
+              - listitem [ref=f1e303]:
+                - paragraph [ref=f1e304]: Airport pick-up and drop-off (if applicable)
+              - listitem [ref=f1e305]:
+                - paragraph [ref=f1e306]: Private or shared transportation as per the itinerary
+              - listitem [ref=f1e307]:
+                - paragraph [ref=f1e308]: Licensed English-speaking trekking guide
+              - listitem [ref=f1e309]:
+                - paragraph [ref=f1e310]: Porter service (1 porter for every 2 trekkers)
+              - listitem [ref=f1e311]:
+                - paragraph [ref=f1e312]: Annapurna Conservation Area Permit (ACAP)
+              - listitem [ref=f1e313]:
+                - paragraph [ref=f1e314]: TIMS Card (if required under current regulations)
+              - listitem [ref=f1e315]:
+                - paragraph [ref=f1e316]: Teahouse accommodation during the trek
+              - listitem [ref=f1e317]:
+                - paragraph [ref=f1e318]: Three meals a day during the trekking period (breakfast, lunch, and dinner)
+              - listitem [ref=f1e319]:
+                - paragraph [ref=f1e320]: Guide and porter meals, accommodation, insurance, and wages
+              - listitem [ref=f1e321]:
+                - paragraph [ref=f1e322]: Basic first aid kit carried by the guide
+              - listitem [ref=f1e323]:
+                - paragraph [ref=f1e324]: Government taxes and service charges
+            - paragraph
+        - generic [ref=f1e325]:
+          - heading "Excluded" [level=3] [ref=f1e326]
+          - generic [ref=f1e330]:
+            - list [ref=f1e331]:
+              - listitem [ref=f1e332]:
+                - paragraph [ref=f1e333]: International and domestic airfare
+              - listitem [ref=f1e334]:
+                - paragraph [ref=f1e335]: Nepal entry visa fees
+              - listitem [ref=f1e336]:
+                - paragraph [ref=f1e337]: Travel and high-altitude rescue insurance
+              - listitem [ref=f1e338]:
+                - paragraph [ref=f1e339]: Personal trekking equipment and clothing
+              - listitem [ref=f1e340]:
+                - paragraph [ref=f1e341]: Snacks, alcoholic beverages, bottled water, and soft drinks
+              - listitem [ref=f1e342]:
+                - paragraph [ref=f1e343]: Hot showers, Wi-Fi, battery charging, and laundry expenses
+              - listitem [ref=f1e344]:
+                - paragraph [ref=f1e345]: Tips for guides and porters
+              - listitem [ref=f1e346]:
+                - paragraph [ref=f1e347]: Personal expenses and souvenirs
+              - listitem [ref=f1e348]:
+                - paragraph [ref=f1e349]: Extra accommodation or meals due to itinerary changes, delays, or early return
+              - listitem [ref=f1e350]:
+                - paragraph [ref=f1e351]: Any services not specifically mentioned under "What's Included"
+            - paragraph
+    - generic [ref=f1e353]:
+      - heading "FAQs & Additional Info" [level=2] [ref=f1e354]
+      - generic [ref=f1e356]:
+        - heading [level=3] [ref=f1e358]:
+          - button "1. Is the 7-day Annapurna Circuit Trek suitable for beginners?" [ref=f1e359] [cursor=pointer]
+        - heading [level=3] [ref=f1e363]:
+          - button "2. What permits are required for the Annapurna Circuit Trek?" [ref=f1e364] [cursor=pointer]
+        - heading [level=3] [ref=f1e368]:
+          - button "3. What is the best time to trek the Annapurna Circuit?" [ref=f1e369] [cursor=pointer]
+        - heading [level=3] [ref=f1e373]:
+          - button "Important Notes" [ref=f1e374] [cursor=pointer]
+        - heading [level=3] [ref=f1e378]:
+          - button "Difficulty" [ref=f1e379] [cursor=pointer]
+    - contentinfo [ref=f1e382]:
+      - generic [ref=f1e384]:
+        - generic [ref=f1e385]:
+          - link "Facebook" [ref=f1e386] [cursor=pointer]:
+            - /url: https://facebook.com/
+            - img "Facebook" [ref=f1e387]
+          - link "Instagram" [ref=f1e388] [cursor=pointer]:
+            - /url: https://instagram.com/
+            - img "Instagram" [ref=f1e389]
+          - link "YouTube" [ref=f1e390] [cursor=pointer]:
+            - /url: https://youtube.com/
+            - img "YouTube" [ref=f1e391]
+          - link "TripAdvisor" [ref=f1e392] [cursor=pointer]:
+            - /url: https://tripadvisor.com/
+            - img "TripAdvisor" [ref=f1e393]
+          - link "WhatsApp" [ref=f1e394] [cursor=pointer]:
+            - /url: https://wa.me/
+            - img "WhatsApp" [ref=f1e395]
+          - link "Google Maps" [ref=f1e396] [cursor=pointer]:
+            - /url: https://maps.google.com/
+            - img "Google Maps" [ref=f1e397]
+        - generic [ref=f1e398]:
+          - generic [ref=f1e399]:
+            - generic [ref=f1e400]: +380 00 000 00 00
+            - generic [ref=f1e404]: +380 00 000 00 00
+          - generic [ref=f1e409]: Lovely Trips
+          - generic [ref=f1e413]:
+            - generic [ref=f1e414]: vsevgory@gmail.com
+            - generic [ref=f1e419]: vsevgorycom
+  - button "Open Next.js Dev Tools" [ref=f1e429] [cursor=pointer]
+  - alert [ref=f1e433]

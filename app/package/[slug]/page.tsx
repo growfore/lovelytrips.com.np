@@ -1,0 +1,54 @@
+import type { Metadata } from "next";
+import { fetchActivity, imgUrl } from "@/lib/api";
+import { PackageHero } from "@/components/site/package-hero";
+import { PackageOverview } from "@/components/site/package-overview";
+import { PackageGallery } from "@/components/site/package-gallery";
+import { PackageItinerary } from "@/components/site/package-itinerary";
+import { PackageAltitudeChart } from "@/components/site/package-altitude-chart";
+import { PackagePricing } from "@/components/site/package-pricing";
+import { PackageIncludes } from "@/components/site/package-includes";
+import { PackageAdditionalInfo, PackageFaq } from "@/components/site/package-faq";
+import { Footer } from "@/components/site/footer";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await fetchActivity(slug);
+  const desc = data.shortDescription.replace(/<[^>]*>/g, "");
+  return {
+    title: data.title,
+    description: desc,
+    openGraph: {
+      title: data.title,
+      description: desc,
+      images: data.images[0] ? imgUrl(data.images[0]) : undefined,
+    },
+  };
+}
+
+export default async function PackagePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const activity = await fetchActivity(slug);
+
+  return (
+    <div className="min-h-screen bg-paper overflow-x-hidden">
+      <PackageHero activity={activity} />
+      <PackageOverview activity={activity} />
+      <PackageGallery activity={activity} />
+      <PackageItinerary activity={activity} />
+      <PackageAltitudeChart data={activity.altitudeChart} />
+      <PackagePricing activity={activity} />
+      <PackageIncludes activity={activity} />
+      <PackageAdditionalInfo activity={activity} />
+      <PackageFaq activity={activity} />
+      <Footer />
+    </div>
+  );
+}
