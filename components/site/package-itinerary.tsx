@@ -12,8 +12,8 @@ export function PackageItinerary({ activity }: { activity: ActivityData }) {
   if (!standard || standard.days.length === 0) return null;
 
   return (
-    <section className="py-20 px-6 md:px-16 bg-[url(/about-us-section-background.webp)] before:absolute before:inset-0 before:bg-cover before:bg-center before:grayscale relative">
-      <div className="relative z-10 max-w-4xl mx-auto">
+    <section className="py-20 px-6 md:px-16 bg-mist/20">
+      <div className="max-w-6xl mx-auto">
         <SectionTitle>Itinerary</SectionTitle>
         <p className="text-center text-sm text-muted-ink font-light mb-10 max-w-xl mx-auto">
           Day-by-day breakdown of your {activity.duration.toLowerCase()} adventure
@@ -30,7 +30,7 @@ export function PackageItinerary({ activity }: { activity: ActivityData }) {
                   onClick={() => setOpenDay(isOpen ? null : day.day)}
                   className="w-full flex items-center gap-4 p-5 text-left cursor-pointer"
                 >
-                  <div className="text-2xl md:text-3xl font-script text-forest shrink-0 w-14 leading-none">
+                  <div className="font-script text-xl md:text-2xl font-bold text-forest shrink-0 w-14 leading-none">
                     {String(day.day).padStart(2, "0")}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -50,12 +50,12 @@ export function PackageItinerary({ activity }: { activity: ActivityData }) {
                       dangerouslySetInnerHTML={{ __html: day.description }}
                     />
                     {day.dayFeaturedImages.length > 0 && (
-                      <div className="mt-4 grid grid-cols-2 gap-4">
+                      <div className="mt-4 space-y-4">
                         {day.dayFeaturedImages.map((fi, i) => {
                           const [capTitle, ...capDesc] = fi.alt.split(":: ");
                           return (
                             <div key={i} className="overflow-hidden">
-                              <div className="aspect-[4/3] rounded-xl overflow-hidden bg-mist/20">
+                              <div className="aspect-[16/9] rounded-xl overflow-hidden bg-mist/20">
                                 <img
                                   src={imgUrl(fi.image)}
                                   alt={fi.alt}

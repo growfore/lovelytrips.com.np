@@ -19,20 +19,6 @@ export function PackageHero({ activity }: { activity: ActivityData }) {
           <h1 className="font-script text-4xl md:text-7xl leading-tight text-white drop-shadow-lg">
             {activity.title}
           </h1>
-          <div className="flex flex-wrap gap-3 mt-6">
-            <span className="bg-white/90 text-ink text-xs tracking-[0.15em] uppercase font-medium px-4 py-2 rounded-full">
-              {activity.duration}
-            </span>
-            <span className="bg-white/90 text-ink text-xs tracking-[0.15em] uppercase font-medium px-4 py-2 rounded-full">
-              {activity.difficultyLevel}
-            </span>
-            <span className="bg-white/90 text-ink text-xs tracking-[0.15em] uppercase font-medium px-4 py-2 rounded-full">
-              ${activity.price} – ${activity.maxPrice}
-            </span>
-            <span className="bg-white/90 text-ink text-xs tracking-[0.15em] uppercase font-medium px-4 py-2 rounded-full">
-              {activity.maximumAltitude.split(" –")[0]}
-            </span>
-          </div>
         </div>
       </div>
     </section>

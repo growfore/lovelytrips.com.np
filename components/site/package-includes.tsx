@@ -21,7 +21,7 @@ function IncludedExcluded({
   if (items.length === 0) return null;
   return (
     <div className={className}>
-      <h3 className="text-2xl md:text-3xl font-script text-ink mb-6 flex items-center gap-2">
+      <h3 className="text-xl md:text-2xl font-body text-ink mb-6 flex items-center gap-2">
         <Icon size={22} className={Icon === Check ? "text-green-600" : "text-red-500"} />
         {title}
       </h3>

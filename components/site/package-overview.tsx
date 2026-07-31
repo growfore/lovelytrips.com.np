@@ -1,5 +1,18 @@
 import type { ActivityData } from "@/lib/api";
 import { imgUrl } from "@/lib/api";
+import {
+  BedDouble,
+  Bus,
+  Clock,
+  Flag,
+  Gauge,
+  Map,
+  MapPin,
+  MountainSnow,
+  Sun,
+  Users,
+  UtensilsCrossed,
+} from "lucide-react";
 import { SectionTitle } from "./section-title";
 
 export function PackageOverview({ activity }: { activity: ActivityData }) {
@@ -25,6 +38,38 @@ export function PackageOverview({ activity }: { activity: ActivityData }) {
         </div>
       </section>
 
+      <section className="py-20 px-6 md:px-16 bg-paper">
+        <div className="max-w-5xl mx-auto">
+          <SectionTitle>Trip Details</SectionTitle>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { label: "Duration", value: activity.duration, Icon: Clock },
+              { label: "Difficulty", value: activity.difficultyLevel, Icon: Gauge },
+              { label: "Max Altitude", value: activity.maximumAltitude.split(" –")[0], Icon: MountainSnow },
+              { label: "Best Season", value: activity.bestSeason, Icon: Sun },
+              { label: "Group Size", value: `Up to ${activity.groupSize}`, Icon: Users },
+              { label: "Transportation", value: activity.transportation, Icon: Bus },
+              { label: "Meals", value: activity.meals, Icon: UtensilsCrossed },
+              { label: "Meeting Point", value: activity.meetingPoint, Icon: MapPin },
+              { label: "Drop-off Point", value: activity.dropOffPoint, Icon: Flag },
+              { label: "Accommodations", value: activity.accommodations.join(", "), Icon: BedDouble },
+              { label: "Locations", value: activity.locations.join(", "), Icon: Map },
+            ].map(({ label, value, Icon }) => (
+              <div
+                key={label}
+                className="bg-mist/30 rounded-xl p-5 text-center"
+              >
+                <Icon size={20} className="text-forest mx-auto mb-2" strokeWidth={1.75} />
+                <div className="text-[10px] tracking-[0.2em] uppercase text-muted-ink font-medium mb-1">
+                  {label}
+                </div>
+                <div className="text-sm font-semibold text-ink">{value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 px-6 md:px-16 bg-paper">
         <div className="max-w-5xl mx-auto">
           <SectionTitle>Highlights</SectionTitle>
@@ -37,7 +82,7 @@ export function PackageOverview({ activity }: { activity: ActivityData }) {
       </section>
 
       {activity.fullDescription && (
-        <section className="py-16 px-6 md:px-16 before:absolute before:inset-0 before:bg-[url(/about-us-section-background.webp)] before:bg-cover before:bg-center before:grayscale relative">
+        <section className="py-16 px-6 md:px-16 before:absolute before:inset-0 ">
           <div className="relative z-10 max-w-4xl mx-auto">
             <SectionTitle>About This Trek</SectionTitle>
             <div
@@ -47,37 +92,6 @@ export function PackageOverview({ activity }: { activity: ActivityData }) {
           </div>
         </section>
       )}
-
-      <section className="py-20 px-6 md:px-16 bg-paper">
-        <div className="max-w-5xl mx-auto">
-          <SectionTitle>Trip Details</SectionTitle>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              { label: "Duration", value: activity.duration },
-              { label: "Difficulty", value: activity.difficultyLevel },
-              { label: "Max Altitude", value: activity.maximumAltitude.split(" –")[0] },
-              { label: "Best Season", value: activity.bestSeason },
-              { label: "Group Size", value: `Up to ${activity.groupSize}` },
-              { label: "Transportation", value: activity.transportation },
-              { label: "Meals", value: activity.meals },
-              { label: "Meeting Point", value: activity.meetingPoint },
-              { label: "Drop-off Point", value: activity.dropOffPoint },
-              { label: "Accommodations", value: activity.accommodations.join(", ") },
-              { label: "Locations", value: activity.locations.join(", ") },
-            ].map(({ label, value }) => (
-              <div
-                key={label}
-                className="bg-mist/30 rounded-xl p-5 text-center"
-              >
-                <div className="text-[10px] tracking-[0.2em] uppercase text-muted-ink font-medium mb-1">
-                  {label}
-                </div>
-                <div className="text-sm font-semibold text-ink">{value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

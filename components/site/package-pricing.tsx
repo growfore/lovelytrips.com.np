@@ -15,8 +15,8 @@ export function PackagePricing({ activity }: { activity: ActivityData }) {
               [&_th]:text-white [&_th]:font-semibold [&_th]:text-left [&_th]:py-3 [&_th]:px-4 [&_th]:border-b [&_th]:border-white/20
               [&_td]:py-2.5 [&_td]:px-4 [&_td]:border-b [&_td]:border-white/10
               [&_tr:last-child_td]:border-b-0
-              [&_h2]:font-script [&_h2]:text-2xl [&_h2]:text-white [&_h2]:mb-4 [&_h2]:text-center
-              [&_h3]:font-script [&_h3]:text-xl [&_h3]:text-white [&_h3]:mt-10 [&_h3]:mb-4
+              [&_h2]:font-body [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-white [&_h2]:mb-4 [&_h2]:text-center
+              [&_h3]:font-body [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-white [&_h3]:mt-10 [&_h3]:mb-4
               [&_p]:text-white/70 [&_p]:text-xs [&_p]:mt-6 [&_p]:text-center
               [&_strong]:text-white [&_strong]:font-semibold"
             dangerouslySetInnerHTML={{ __html: activity.priceBreakdown }}
