@@ -13,6 +13,23 @@
   --color-paper: var(--paper);
   --color-forest: var(--forest);
   --color-mist: var(--mist);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
 }
 
 :root {
@@ -23,6 +40,23 @@
   --paper: oklch(1 0 0);
   --forest: #787f55;
   --mist: #d3d4aa;
+  --primary: #04302f;
+  --primary-foreground: #ffffff;
+  --secondary: #eef0e4;
+  --secondary-foreground: #04302f;
+  --muted: #f0f2e6;
+  --muted-foreground: oklch(0.45 0.02 240);
+  --accent: #eef0e4;
+  --accent-foreground: #04302f;
+  --destructive: #b33a34;
+  --destructive-foreground: #ffffff;
+  --border: #d8dcc8;
+  --input: #d8dcc8;
+  --ring: #787f55;
+  --card: #ffffff;
+  --card-foreground: #04302f;
+  --popover: #ffffff;
+  --popover-foreground: #04302f;
 }
 
 @layer base {

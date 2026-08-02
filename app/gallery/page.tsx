@@ -1,33 +1,69 @@
-import { SectionTitle } from "@/components/site/section-title";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { Nav } from "@/components/site/nav";
+import { Footer } from "@/components/site/footer";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description: "Browse our photo gallery of Nepal treks, mountains, and adventures.",
+};
 
 const images = [
-  "/gallery-image.webp",
-  "/assets/gallery1.webp",
-  "/assets/gallery2.webp",
-  "/assets/gallery3.webp",
-  "/assets/gallery4.webp",
-  "/assets/gallery5.webp",
+  { src: "/gallery-image.webp", alt: "Featured Nepal landscape" },
+  { src: "/assets/gallery1.webp", alt: "Himalayan trails" },
+  { src: "/assets/gallery2.webp", alt: "Mountain scenery" },
+  { src: "/assets/gallery3.webp", alt: "Trekking routes" },
+  { src: "/assets/gallery4.webp", alt: "Nepal landscapes" },
+  { src: "/assets/gallery5.webp", alt: "Adventure moments" },
 ];
 
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-paper">
-      <div className="py-20 px-6">
-        <SectionTitle>Photo Gallery</SectionTitle>
-        <div className="max-w-5xl mx-auto mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((src, i) => (
-            <div key={i} className="aspect-square overflow-hidden rounded-xl">
-              <img src={src} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </div>
-          ))}
+    <div className="min-h-screen bg-paper overflow-x-clip">
+      <section className="relative h-[50vh] min-h-[400px] w-full">
+        <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
+          <img
+            src="/hero-image.webp"
+            alt="Nepal mountains"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/5" />
         </div>
-      </div>
-      <div className="text-center pb-12">
-        <Link href="/" className="border border-ink text-ink px-8 py-3 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:bg-ink hover:text-white transition-all">
-          Back to Home
-        </Link>
-      </div>
+        <Nav className="text-white" />
+        <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 px-6">
+          <div className="max-w-5xl mx-auto">
+            <nav className="text-[11px] tracking-[0.2em] uppercase text-white/70 mb-3">
+              <Link href="/" className="hover:text-white">Home</Link>
+              <span className="mx-2 text-white/40">/</span>
+              <span className="text-white/90">Gallery</span>
+            </nav>
+            <h1 className="font-script text-4xl md:text-6xl leading-tight text-white drop-shadow-lg">
+              Photo Gallery
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+            {images.map((img) => (
+              <div
+                key={img.src}
+                className="mb-4 break-inside-avoid overflow-hidden rounded-xl"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }

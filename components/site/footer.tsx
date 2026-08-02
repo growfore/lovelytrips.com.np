@@ -1,13 +1,18 @@
 import { Phone, Mail, Send } from "lucide-react";
+import { siteConfig } from "@/lib/siteConfig";
 
-const socials = [
-  { href: "https://facebook.com/", icon: "/icons/socials/facebook.png", label: "Facebook" },
-  { href: "https://instagram.com/", icon: "/icons/socials/instagram.png", label: "Instagram" },
-  { href: "https://youtube.com/", icon: "/icons/socials/youtube.png", label: "YouTube" },
-  { href: "https://tripadvisor.com/", icon: "/icons/socials/tripadvisor.png", label: "TripAdvisor" },
-  { href: "https://wa.me/", icon: "/icons/socials/whatsapp.png", label: "WhatsApp" },
-  { href: "https://maps.google.com/", icon: "/icons/socials/google-maps.png", label: "Google Maps" },
-];
+const socialIconByKey: Record<string, { icon: string; label: string }> = {
+  facebook: { icon: "/icons/socials/facebook.png", label: "Facebook" },
+  instagram: { icon: "/icons/socials/instagram.png", label: "Instagram" },
+  youtube: { icon: "/icons/socials/youtube.png", label: "YouTube" },
+  tripadvisor: { icon: "/icons/socials/tripadvisor.png", label: "TripAdvisor" },
+  whatsapp: { icon: "/icons/socials/whatsapp.png", label: "WhatsApp" },
+  googleMaps: { icon: "/icons/socials/google-maps.png", label: "Google Maps" },
+};
+
+const socials = Object.entries(siteConfig.socials)
+  .filter(([, href]) => href)
+  .map(([key, href]) => ({ href, ...socialIconByKey[key] }));
 
 export function Footer() {
   return (
@@ -25,7 +30,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-1">
             <div className="flex items-center gap-2">
               <Phone size={14} />
-              <span>+380 00 000 00 00</span>
+              <span>{siteConfig.phone}</span>
             </div>
             <div className="flex items-center gap-2">
               <Send size={14} />
@@ -43,7 +48,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-end gap-1">
             <div className="flex items-center gap-2">
               <Mail size={14} />
-              <span>vsevgory@gmail.com</span>
+              <span>{siteConfig.email}</span>
             </div>
             <div className="flex items-center gap-2">
               <Send size={14} />

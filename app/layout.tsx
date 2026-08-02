@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Satisfy } from "next/font/google";
+import { siteConfig } from "@/lib/siteConfig";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,15 +16,16 @@ const satisfy = Satisfy({
 });
 
 export const metadata: Metadata = {
-  title: "Lovely Trips",
-  description:
-    "Guided treks for every level — trek Nepal's mountains with Lovely Trips.",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   openGraph: {
-    title: "Lovely Trips",
-    description:
-      "Guided treks for every level — trek Nepal's mountains with Lovely Trips.",
+    title: siteConfig.name,
+    description: siteConfig.description,
     type: "website",
-    siteName: "Lovely Trips",
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
