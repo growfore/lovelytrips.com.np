@@ -37,7 +37,7 @@ function IncludedExcluded({
 
 export function PackageIncludes({ activity }: { activity: ActivityData }) {
   return (
-    <section className="py-20 px-6 md:px-16 bg-paper">
+    <section id="includes" className="py-20 px-6 md:px-16 bg-paper">
       <SectionTitle>What&apos;s Included</SectionTitle>
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16">
         <IncludedExcluded

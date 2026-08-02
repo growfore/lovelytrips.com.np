@@ -16,13 +16,13 @@
 }
 
 :root {
-  --background: oklch(0.98 0.005 90);
-  --foreground: oklch(0.2 0.02 240);
-  --ink: oklch(0.18 0.02 240);
+  --background: #ffffff;
+  --foreground: #04302f;
+  --ink: #04302f;
   --muted-ink: oklch(0.45 0.02 240);
   --paper: oklch(1 0 0);
-  --forest: oklch(0.28 0.03 150);
-  --mist: oklch(0.85 0.015 220);
+  --forest: #787f55;
+  --mist: #d3d4aa;
 }
 
 @layer base {
@@ -31,6 +31,9 @@
     color: var(--ink);
     font-family: var(--font-body);
     font-weight: 400;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-script);
@@ -73,6 +76,11 @@
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 }
 
 @utility btn-solid-dark {

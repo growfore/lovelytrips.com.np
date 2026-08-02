@@ -10,7 +10,7 @@ export function PackageGallery({ activity }: { activity: ActivityData }) {
   if (allImages.length === 0) return null;
 
   return (
-    <section className="py-20 px-6 md:px-16 bg-paper">
+    <section id="gallery" className="py-20 px-6 md:px-16 bg-paper">
       <SectionTitle>Gallery</SectionTitle>
       <p className="text-center text-sm text-muted-ink font-light mb-10 max-w-xl mx-auto">
         Photos from this trek

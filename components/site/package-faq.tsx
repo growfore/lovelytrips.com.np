@@ -9,12 +9,12 @@ import {
 import type { ActivityData } from "@/lib/api";
 import { SectionTitle } from "./section-title";
 
-const INFO_ICON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d6a4f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E")`;
+const INFO_ICON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23787f55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E")`;
 
 export function PackageAdditionalInfo({ activity }: { activity: ActivityData }) {
   if (activity.additionalInfo.length === 0) return null;
   return (
-    <section className="py-20 px-6 md:px-16 bg-mist/20">
+    <section id="info" className="py-20 px-6 md:px-16 bg-mist/20">
       <div className="relative z-10 max-w-3xl mx-auto">
         <SectionTitle>Additional Information</SectionTitle>
         <div className="space-y-6">
@@ -39,10 +39,10 @@ export function PackageFaq({ activity }: { activity: ActivityData }) {
   const allFaqs = activity.faqs.flatMap((cat) => cat.faqs);
   if (allFaqs.length === 0) return null;
   return (
-    <section className="py-20 px-6 md:px-16 bg-mist/20">
+    <section id="faq" className="py-20 px-6 md:px-16 bg-mist/20">
       <div className="relative z-10 max-w-3xl mx-auto">
         <SectionTitle>FAQs</SectionTitle>
-        <Accordion type="single" collapsible className="space-y-3">
+        <Accordion type="multiple" className="space-y-3">
           {allFaqs.map((faq, i) => (
             <AccordionItem
               key={`faq-${i}`}

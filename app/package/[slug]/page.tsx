@@ -8,6 +8,7 @@ import { PackageAltitudeChart } from "@/components/site/package-altitude-chart";
 import { PackagePricing } from "@/components/site/package-pricing";
 import { PackageIncludes } from "@/components/site/package-includes";
 import { PackageAdditionalInfo, PackageFaq } from "@/components/site/package-faq";
+import { PackageSectionNav } from "@/components/site/package-section-nav";
 import { Footer } from "@/components/site/footer";
 
 export async function generateMetadata({
@@ -38,8 +39,9 @@ export default async function PackagePage({
   const activity = await fetchActivity(slug);
 
   return (
-    <div className="min-h-screen bg-paper overflow-x-hidden">
+    <div className="min-h-screen bg-paper overflow-x-clip">
       <PackageHero activity={activity} />
+      <PackageSectionNav />
       <PackageOverview activity={activity} />
       <PackageGallery activity={activity} />
       <PackageItinerary activity={activity} />

@@ -78,6 +78,27 @@ export async function fetchActivity(slug: string): Promise<ActivityData> {
   return json.data;
 }
 
+export interface InfoPage {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  coverImage: string;
+  metaTitle: string;
+  metaDescription: string;
+  published: boolean;
+  infoPageCategory?: { categoryHandle: string; categoryName: string } | null;
+}
+
+export async function fetchInfoPage(slug: string): Promise<InfoPage> {
+  const res = await fetch(`${API_BASE}/api/v1/info-page/slug/${slug}`, {
+    next: { revalidate: 60 },
+  });
+  if (!res.ok) throw new Error("Failed to fetch info page");
+  const json = await res.json();
+  return json.infoPage;
+}
+
 export function imgUrl(path: string): string {
   if (path.startsWith("http")) return path;
   return `${API_BASE}${path}`;

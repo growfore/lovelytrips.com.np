@@ -5,7 +5,7 @@ const heroImg = "/hero-image.webp";
 export function Hero() {
   return (
     <section className="relative h-[70vh] min-h-[500px] md:h-[100vh] md:min-h-[700px] w-full">
-      <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
+      <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
         <img
           src={heroImg}
           alt="Hiker celebrating on mountain summit"

@@ -2,7 +2,7 @@ import type { ActivityData } from "@/lib/api";
 
 export function PackagePricing({ activity }: { activity: ActivityData }) {
   return (
-    <section className="relative py-20 md:py-32 px-4 md:px-16 bg-ink">
+    <section id="pricing" className="relative py-20 md:py-32 px-4 md:px-16 bg-ink">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-script text-white mb-2">Pricing</h2>
         <p className="text-white/60 text-sm tracking-[0.2em] uppercase mb-10">

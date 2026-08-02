@@ -15,17 +15,18 @@ const satisfy = Satisfy({
 });
 
 export const metadata: Metadata = {
-  title: "Lovable App",
-  description: "Lovable Generated Project",
-  authors: [{ name: "Lovable" }],
+  title: "Lovely Trips",
+  description:
+    "Guided treks for every level — trek Nepal's mountains with Lovely Trips.",
   openGraph: {
-    title: "Lovable App",
-    description: "Lovable Generated Project",
+    title: "Lovely Trips",
+    description:
+      "Guided treks for every level — trek Nepal's mountains with Lovely Trips.",
     type: "website",
+    siteName: "Lovely Trips",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@Lovable",
   },
 };
 

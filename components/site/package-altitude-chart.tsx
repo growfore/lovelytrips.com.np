@@ -22,8 +22,8 @@ function AltitudeProfile({ data }: { data: AltitudePoint[] }) {
       <AreaChart data={data} margin={{ top: 30, right: 16, bottom: 8, left: 16 }}>
         <defs>
           <linearGradient id="altGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--forest, #2d6a4f)" stopOpacity={0.3} />
-            <stop offset="100%" stopColor="var(--forest, #2d6a4f)" stopOpacity={0.02} />
+            <stop offset="0%" stopColor="var(--forest, #787f55)" stopOpacity={0.3} />
+            <stop offset="100%" stopColor="var(--forest, #787f55)" stopOpacity={0.02} />
           </linearGradient>
         </defs>
         <XAxis
@@ -38,13 +38,13 @@ function AltitudeProfile({ data }: { data: AltitudePoint[] }) {
         />
         <YAxis hide domain={["auto", "auto"]} />
         <Tooltip
-          cursor={{ stroke: "var(--mist, #e2e8f0)", strokeWidth: 1 }}
+          cursor={{ stroke: "var(--mist, #d3d4aa)", strokeWidth: 1 }}
           contentStyle={{
             background: "white",
-            border: "1px solid var(--mist, #e2e8f0)",
+            border: "1px solid var(--mist, #d3d4aa)",
             borderRadius: 12,
             fontSize: 12,
-            color: "var(--ink, #1c1917)",
+            color: "var(--ink, #04302f)",
           }}
           labelStyle={{ fontWeight: 600, marginBottom: 4 }}
           formatter={(value) => [`${value} m`, "Altitude"]}
@@ -52,7 +52,7 @@ function AltitudeProfile({ data }: { data: AltitudePoint[] }) {
         <Area
           type="monotone"
           dataKey="altitude"
-          stroke="var(--forest, #2d6a4f)"
+          stroke="var(--forest, #787f55)"
           strokeWidth={2.5}
           fill="url(#altGradient)"
           dot={(props) => {
@@ -63,8 +63,8 @@ function AltitudeProfile({ data }: { data: AltitudePoint[] }) {
                 cx={props.cx}
                 cy={props.cy}
                 r={isPeak ? 6 : 4}
-                fill={isPeak ? "var(--forest, #2d6a4f)" : "white"}
-                stroke="var(--forest, #2d6a4f)"
+                fill={isPeak ? "var(--forest, #787f55)" : "white"}
+                stroke="var(--forest, #787f55)"
                 strokeWidth={2}
               />
             );
@@ -87,7 +87,7 @@ function AltitudeProfile({ data }: { data: AltitudePoint[] }) {
 export function PackageAltitudeChart({ data }: { data: AltitudePoint[] }) {
   if (!data || data.length === 0) return null;
   return (
-    <section className="py-20 px-6 md:px-16 bg-paper">
+    <section id="altitude" className="py-20 px-6 md:px-16 bg-paper">
       <SectionTitle>Altitude Profile</SectionTitle>
       <p className="text-center text-sm text-muted-ink font-light mb-10 max-w-xl mx-auto">
         Track the elevation gain and loss throughout your journey
