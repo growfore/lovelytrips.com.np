@@ -13,11 +13,11 @@ const items = [
 export function Popular() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    "/assets/popular-bg.webp",
-    "/assets/stats-bg.webp",
-    "/assets/trip1.webp",
-    "/assets/trip2.webp",
-    "/assets/trip3.webp",
+    "/homepage-images/popular-expendition-1.jpg",
+    "/homepage-images/popular-expenditon-2.jpg",
+    "/homepage-images/popular-expendition-3.jpg",
+    "/homepage-images/popular-expendition-4.JPG",
+    "/homepage-images/popular-expendition-5.jpg",
   ];
 
   useEffect(() => {

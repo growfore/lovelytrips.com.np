@@ -2,11 +2,11 @@ export const siteConfig = {
   name: "Lovely Trips",
   description:
     "Guided treks for every level — trek Nepal's mountains with Lovely Trips.",
-  email: "vsevgory@gmail.com",
-  phone: "+380 00 000 00 00",
-  whatsAppNumber: "",
+  email: "info@lovelytrips.com",
+  phone: "+977 985-6066154",
+  whatsAppNumber: "9856066154",
   address: "",
-  mapEmbedUrl: "https://maps.google.com/maps?q=Nepal&z=6&output=embed",
+  mapEmbedUrl: "https://maps.app.goo.gl/BrbC9iqodQPAd2DM8",
   socials: {
     facebook: "https://facebook.com/",
     instagram: "https://instagram.com/",

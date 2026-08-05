@@ -32,10 +32,6 @@ export function Footer() {
               <Phone size={14} />
               <span>{siteConfig.phone}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Send size={14} />
-              <span>+380 00 000 00 00</span>
-            </div>
           </div>
 
           <div className="flex flex-col items-center gap-1">
@@ -49,10 +45,6 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <Mail size={14} />
               <span>{siteConfig.email}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Send size={14} />
-              <span>vsevgorycom</span>
             </div>
           </div>
         </div>

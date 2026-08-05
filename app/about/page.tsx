@@ -85,22 +85,29 @@ export default function AboutPage() {
 
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold text-ink">Our Story</h2>
-            <p className="mt-4 text-muted-ink leading-relaxed">
-              {siteConfig.name} was born from a simple belief — that the best way to experience Nepal is
-              through the eyes of those who call it home. Founded by local trekking guides and travel
-              experts, we have spent years leading adventurers through the Himalayas.
-            </p>
-            <p className="mt-4 text-muted-ink leading-relaxed">
-              From the bustling streets of Kathmandu to the remote trails of Nar Phu Valley, every journey
-              we craft is designed to immerse you in Nepal&apos;s rich culture, breathtaking landscapes, and
-              warm hospitality.
-            </p>
-            <p className="mt-4 text-muted-ink leading-relaxed">
-              We believe in responsible travel, supporting local communities, and creating experiences
-              that stay with you long after you&apos;ve returned home.
-            </p>
+          <div className="max-w-4xl">
+            <p className="font-script text-2xl md:text-3xl text-forest">Our Mission</p>
+            <h2 className="mt-1 text-3xl md:text-4xl font-bold text-ink">
+              Where Adventure Inspires Connection
+            </h2>
+
+            <div className="mt-6 space-y-5 text-muted-ink leading-relaxed text-base md:text-lg font-light">
+              <p>
+                At <strong className="font-semibold text-ink">Lovely Trips</strong>, we believe that the greatest journeys don’t just traverse landscapes—they forge bonds between people. Based in the heart of Nepal’s Himalayan wonderland, we craft immersive outdoor adventures and cultural experiences that bring travelers closer to the soul of this extraordinary land.
+              </p>
+              <p>
+                From trekking through hidden mountain trails to sharing laughter over local meals in remote villages, every step with us is rooted in meaningful connection—with nature and with the incredible people who call this place home.
+              </p>
+              <p>
+                What sets us apart is our commitment to community. We work hand-in-hand with local guides, artisans, and families, ensuring our adventures directly support sustainable livelihoods and preserve cultural traditions. Whether it’s helping with gear for unseen heroes of the Himalayas or promoting homegrown talent, your journey with us becomes part of something greater.
+              </p>
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-forest/10 border-l-4 border-forest p-6 md:p-8">
+              <blockquote className="font-script text-2xl md:text-3xl text-ink leading-snug">
+                &ldquo;Join us—not just to explore Nepal, but to uplift it and make it home for yourself.&rdquo;
+              </blockquote>
+            </div>
           </div>
         </div>
       </section>

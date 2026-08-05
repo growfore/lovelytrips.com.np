@@ -30,6 +30,17 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

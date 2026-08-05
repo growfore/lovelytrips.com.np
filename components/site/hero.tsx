@@ -1,6 +1,6 @@
 import { Nav } from "./nav";
 
-const heroImg = "/hero-image.webp";
+const heroImg = "/homepage-images/hero-image.jpg";
 
 export function Hero() {
   return (
