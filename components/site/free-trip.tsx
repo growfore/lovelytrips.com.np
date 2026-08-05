@@ -2,17 +2,18 @@ import Image from "next/image";
 import { SectionTitle } from "./section-title";
 
 const items = [
-  { icon: "/icons/group.png", title: "Bring a Friend", desc: "Refer one paying traveler and get 50% off your own trip — the more you bring, the more you save." },
-  { icon: "/icons/offer.png", title: "Last-Minute Deal", desc: " Grab unfilled spots at half price when a departure date is just around the corner." },
-  { icon: "/icons/price-tag.png", title: "Early Bird Pricing", desc: "Book at least 60 days ahead and lock in a discounted rate before prices go up." },
-  { icon: "/icons/like.png", title: "Loyalty Perk", desc: "Every third trip with us is completely free — our way of saying thanks for coming back." },
+  { icon: "/icons/new-route-promotion.png", title: "New Route Promotion", desc: "Fresh trails before the crowds — new routes launch with special introductory pricing for the first explorers." },
+  { icon: "/icons/shoe-distribution.png", title: "Shoe Distribution", desc: "We donate trekking shoes to local porters and guides, keeping every team safe and comfortable on the trail." },
+  { icon: "/icons/trekking-route-cleanup.png", title: "Route Cleanups", desc: "Our teams clear litter from popular trails, keeping the mountains as pristine as we found them." },
+  { icon: "/icons/trekking-pole-distribution.png", title: "Pole Distribution", desc: "Trekking poles donated to local guides — lighter loads, safer descents, and more confident treks." },
+  { icon: "/icons/happy-monday.png", title: "Happy Monday", desc: "We start every week sharing mountain stories and planning the next adventure on the trails." },
 ];
 
 export function FreeTrip() {
   return (
     <section className="py-20 px-6">
-      <SectionTitle>Perks &amp; Rewards</SectionTitle>
-      <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <SectionTitle>Community &amp; Care</SectionTitle>
+      <div className="max-w-4xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
         {items.map(({ icon, title, desc }) => (
           <div key={title}>
             <div className="flex justify-center mb-3"><Image src={icon} alt={title} width={36} height={36} className="opacity-80" /></div>
