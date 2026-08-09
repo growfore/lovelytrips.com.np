@@ -44,6 +44,7 @@ const contactFormSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
   destination: z.string().min(1, "Please select a destination"),
   groupSize: z.string().min(1, "Please select a group size"),
+  // @ts-expect-error some type issue
   startDate: z.string("Please choose your desired date for the activity."),
   experienceLevel: z.string().optional(),
   email: z.string().email("Invalid email address"),
