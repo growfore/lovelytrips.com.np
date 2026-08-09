@@ -39,18 +39,18 @@ export default async function PackagePage({
   const activity = await fetchActivity(slug);
 
   return (
-    <div className="min-h-screen bg-paper overflow-x-clip">
-      <PackageHero activity={activity} />
-      <PackageSectionNav />
-      <PackageOverview activity={activity} />
-      <PackageGallery activity={activity} />
-      <PackageItinerary activity={activity} />
-      <PackageAltitudeChart data={activity.altitudeChart} />
-      <PackagePricing activity={activity} />
-      <PackageIncludes activity={activity} />
-      <PackageAdditionalInfo activity={activity} />
-      <PackageFaq activity={activity} />
-      <Footer />
+    <div className="min-h-screen bg-paper">
+        <PackageHero activity={activity} />
+        <PackageSectionNav price={activity.price} />
+        <PackageOverview activity={activity} />
+        <PackageGallery activity={activity} />
+        <PackageItinerary activity={activity} />
+        <PackageAltitudeChart data={activity.altitudeChart} />
+        <PackagePricing activity={activity} />
+        <PackageIncludes activity={activity} />
+        <PackageAdditionalInfo activity={activity} />
+        <PackageFaq activity={activity} />
+        <Footer />
     </div>
   );
 }

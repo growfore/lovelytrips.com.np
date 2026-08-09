@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu as MenuIcon, X, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu as MenuIcon, X } from "lucide-react";
 import { Logo } from "./logo";
 import {
   MenuItem,
@@ -59,11 +59,8 @@ export function Nav({ className = "", initialMenuItems }: NavProps) {
   const hasChildren = (item: MenuItem) =>
     Array.isArray(item.children) && item.children.length > 0;
 
-  const activeItem = items.find((item) => item.id === activeMenuId);
-  const isDropdownOpen = !!(activeItem && hasChildren(activeItem));
-
   return (
-    <header className="relative z-50 w-full font-body">
+    <header className="absolute inset-x-0 top-0 z-50 w-full font-body">
       {/* Top Navbar */}
       <div className="px-4 sm:px-8 md:px-12 pt-4 pb-2">
         <nav
@@ -88,7 +85,7 @@ export function Nav({ className = "", initialMenuItems }: NavProps) {
                   <Link
                     key={item.id}
                     href={normUrl}
-                    className="px-3 py-2 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-70 transition-opacity"
+                    className="px-3 py-2 text-sm tracking-[0.2em] uppercase font-medium hover:opacity-70 transition-opacity"
                   >
                     {item.label}
                   </Link>
@@ -98,12 +95,14 @@ export function Nav({ className = "", initialMenuItems }: NavProps) {
               return (
                 <div
                   key={item.id}
+                  className="relative"
                   onMouseEnter={() => handleMouseEnter(item.id)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     type="button"
                     onClick={() => setActiveMenuId(isOpen ? null : item.id)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs tracking-[0.2em] uppercase font-medium transition-all ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm tracking-[0.2em] uppercase font-medium transition-all ${
                       isOpen ? "opacity-100 font-semibold" : "hover:opacity-70"
                     }`}
                     aria-expanded={isOpen}
@@ -115,6 +114,44 @@ export function Nav({ className = "", initialMenuItems }: NavProps) {
                       }`}
                     />
                   </button>
+
+                  {isOpen && (
+                    <div className="absolute top-full left-0 z-50 pt-2">
+                      <div className="bg-paper border border-border shadow-lg rounded-md py-2 min-w-[240px] animate-in fade-in zoom-in-95 duration-150">
+                        {item.children?.map((child) => {
+                          if (hasChildren(child)) {
+                            return (
+                              <div key={child.id}>
+                                <div className="px-4 pt-2 pb-1 text-[10px] font-bold uppercase tracking-widest text-muted-ink">
+                                  {child.label}
+                                </div>
+                                {child.children?.map((leaf) => (
+                                  <Link
+                                    key={leaf.id}
+                                    href={normalizeMenuUrl(leaf.url)}
+                                    onClick={() => setActiveMenuId(null)}
+                                    className="block px-4 py-1.5 text-sm text-ink hover:text-forest hover:bg-secondary"
+                                  >
+                                    {leaf.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            );
+                          }
+                          return (
+                            <Link
+                              key={child.id}
+                              href={normalizeMenuUrl(child.url)}
+                              onClick={() => setActiveMenuId(null)}
+                              className="block px-4 py-1.5 text-sm text-ink hover:text-forest hover:bg-secondary"
+                            >
+                              {child.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -140,83 +177,6 @@ export function Nav({ className = "", initialMenuItems }: NavProps) {
           </div>
         </nav>
       </div>
-
-      {/* Dead Simple Full Width Dropdown */}
-      {isDropdownOpen && activeItem && (
-        <div
-          className="absolute top-full left-0 right-0 w-full z-50 animate-in fade-in slide-in-from-top-1 duration-150"
-          onMouseEnter={() => handleMouseEnter(activeItem.id)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="w-full bg-paper text-ink border-y border-border shadow-lg py-8 px-6 md:px-12 text-left">
-            <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-start">
-              {/* Menu Links */}
-              <div className="col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {activeItem.children?.map((subItem) => {
-                  const hasSubChildren = hasChildren(subItem);
-                  const subNormUrl = normalizeMenuUrl(subItem.url);
-
-                  if (hasSubChildren) {
-                    return (
-                      <div key={subItem.id} className="space-y-3">
-                        <div className="text-xs font-bold uppercase tracking-widest text-forest border-b border-border/60 pb-2">
-                          {subItem.label}
-                        </div>
-                        <ul className="space-y-2">
-                          {subItem.children?.map((pkg) => (
-                            <li key={pkg.id}>
-                              <Link
-                                href={normalizeMenuUrl(pkg.url)}
-                                onClick={() => setActiveMenuId(null)}
-                                className="text-xs text-muted-ink hover:text-ink hover:underline transition-colors block py-0.5"
-                              >
-                                {pkg.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <div key={subItem.id} className="space-y-2">
-                      <Link
-                        href={subNormUrl}
-                        onClick={() => setActiveMenuId(null)}
-                        className="text-xs font-medium text-ink hover:text-forest transition-colors flex items-center justify-between group border-b border-border/40 pb-2"
-                      >
-                        <span>{subItem.label}</span>
-                        <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-forest" />
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Right Teaser Link */}
-              <div className="col-span-12 lg:col-span-3 border-t lg:border-t-0 lg:border-l border-border pt-6 lg:pt-0 lg:pl-8 flex flex-col justify-between">
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-ink mb-2">
-                    Custom Trip?
-                  </div>
-                  <p className="text-xs text-muted-ink leading-relaxed font-light mb-4">
-                    Design a tailor-made Himalayan itinerary with our local guides.
-                  </p>
-                </div>
-                <Link
-                  href="/design-your-trip"
-                  onClick={() => setActiveMenuId(null)}
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-forest hover:underline"
-                >
-                  <span>Design Your Trip</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Mobile Navigation Drawer */}
       {mobileOpen && (

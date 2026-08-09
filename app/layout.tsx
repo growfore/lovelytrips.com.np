@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Satisfy } from "next/font/google";
 import { siteConfig } from "@/lib/siteConfig";
 import "./globals.css";
+import { Footer } from "@/components/site/footer";
+import { Nav } from "@/components/site/nav";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -50,7 +52,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${satisfy.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Nav/>
+        {children}
+        <Footer/>
+      </body>
     </html>
   );
 }

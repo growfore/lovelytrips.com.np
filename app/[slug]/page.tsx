@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { fetchInfoPage, imgUrl } from "@/lib/api";
-import { Nav } from "@/components/site/nav";
-import { Footer } from "@/components/site/footer";
 
 export async function generateMetadata({
   params,
@@ -45,7 +43,6 @@ export default async function InfoPage({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/5" />
         </div>
-        <Nav className="text-white" />
         <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 px-6">
           <div className="max-w-5xl mx-auto">
             {page.infoPageCategory && (
@@ -73,7 +70,6 @@ export default async function InfoPage({
           dangerouslySetInnerHTML={{ __html: page.content }}
         />
       </section>
-      <Footer />
     </div>
   );
 }

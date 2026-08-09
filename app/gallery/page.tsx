@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Nav } from "@/components/site/nav";
-import { Footer } from "@/components/site/footer";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -28,8 +26,8 @@ export default function GalleryPage() {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/5" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/10 to-transparent" />
         </div>
-        <Nav className="text-white" />
         <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 px-6">
           <div className="max-w-5xl mx-auto">
             <nav className="text-[11px] tracking-[0.2em] uppercase text-white/70 mb-3">
@@ -62,8 +60,6 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

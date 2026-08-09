@@ -1,4 +1,4 @@
-export const API_BASE = "https://api.lovelytrips.com.np";
+export const API_BASE = process.env.API_BASE_URL || "https://api.lovelytrips.com.np";
 
 export interface AltitudePoint {
   id?: string;
@@ -217,4 +217,3 @@ export async function fetchMenuItems(): Promise<MenuItem[]> {
     return DEFAULT_MENU_ITEMS;
   }
 }
-

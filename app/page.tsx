@@ -9,7 +9,6 @@ import { Gallery } from "@/components/site/gallery";
 import { FreeTrip } from "@/components/site/free-trip";
 import { Testimonial } from "@/components/site/testimonial";
 import { ContactForm } from "@/components/site/contact-form";
-import { Footer } from "@/components/site/footer";
 
 export const metadata: Metadata = {
   title: "Lovely Trips — Guided Mountain Trekking Expeditions",
@@ -39,7 +38,6 @@ export default function Home() {
       <Testimonial />
       <FreeTrip />
       <ContactForm />
-      <Footer />
     </div>
   );
 }

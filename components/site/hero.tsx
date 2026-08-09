@@ -1,5 +1,3 @@
-import { Nav } from "./nav";
-
 const heroImg = "/homepage-images/hero-image.jpg";
 
 export function Hero() {
@@ -12,19 +10,18 @@ export function Hero() {
           className="w-full h-full object-cover"
         />
       </div>
-      <Nav className="text-black" />
-      <div className="relative z-10 text-center text-black mt-8 md:mt-24">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
         <svg viewBox="0 0 1000 180" className="w-full max-w-4xl mx-auto h-auto overflow-visible">
           <defs>
             <path id="hero-curve" d="M 50 60 C 300 30, 700 30, 950 70" fill="none" />
           </defs>
-          <text className="font-script text-8xl " fill="black" textAnchor="middle">
+          <text className="font-script text-8xl " fill="white" textAnchor="middle">
             <textPath href="#hero-curve" startOffset="50%">
               Hikes into the Mountains
             </textPath>
           </text>
         </svg>
-        <p className="text-[0.1em] md:text-sm tracking-[0.4em] uppercase md:-mt-24 -mt-8 opacity-90 font-light">
+        <p className="text-[0.1em] md:text-sm tracking-[0.4em] uppercase md:-mt-14 opacity-90 font-light ">
           &mdash; guided treks for every level &mdash;
         </p>
       </div>
