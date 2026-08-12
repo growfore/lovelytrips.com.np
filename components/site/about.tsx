@@ -1,7 +1,7 @@
 import { SectionTitle } from "./section-title";
 import { Heart, Compass, Users } from "lucide-react";
 
-const aboutImg = "/homepage-images/about-us.jpg";
+const aboutImg = "/homepage-images/about-us.webp";
 
 export function About() {
   return (

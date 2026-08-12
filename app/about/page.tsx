@@ -10,42 +10,42 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    icon: "/icons/mountain.png",
+    icon: "/icons/mountain.webp",
     title: "Local Expertise",
     desc: "Our team lives and breathes Nepal. We know the trails, the culture, and the hidden gems that guidebooks miss.",
     span: "md:col-span-3",
     variant: "ink" as const,
   },
   {
-    icon: "/icons/waterfall.png",
+    icon: "/icons/waterfall.webp",
     title: "Responsible Travel",
     desc: "We partner with local communities, employ local guides, and ensure your visit supports the places you explore.",
     span: "md:col-span-3",
     variant: "mist" as const,
   },
   {
-    icon: "/icons/backpack.png",
+    icon: "/icons/backpack.webp",
     title: "Tailor-Made Trips",
     desc: "Every itinerary is built around you — your fitness, your interests, your dream trip.",
     span: "md:col-span-2",
     variant: "card" as const,
   },
   {
-    icon: "/icons/group.png",
+    icon: "/icons/group.webp",
     title: "Friendly Local Guides",
     desc: "Experienced guides and porters who turn a trek into a story worth telling.",
     span: "md:col-span-2",
     variant: "card" as const,
   },
   {
-    icon: "/icons/price-tag.png",
+    icon: "/icons/price-tag.webp",
     title: "Unbeatable Value",
     desc: "Local prices without compromising quality. Transparent pricing, no hidden fees.",
     span: "md:col-span-2",
     variant: "card" as const,
   },
   {
-    icon: "/icons/like.png",
+    icon: "/icons/like.webp",
     title: "Loved by Travelers",
     desc: "From your first inquiry to your return flight, our team is a phone call away, anytime.",
     span: "md:col-span-6",

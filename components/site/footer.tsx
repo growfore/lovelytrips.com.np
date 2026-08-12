@@ -2,12 +2,12 @@ import { Phone, Mail, Send } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 
 const socialIconByKey: Record<string, { icon: string; label: string }> = {
-  facebook: { icon: "/icons/socials/facebook.png", label: "Facebook" },
-  instagram: { icon: "/icons/socials/instagram.png", label: "Instagram" },
-  youtube: { icon: "/icons/socials/youtube.png", label: "YouTube" },
-  tripadvisor: { icon: "/icons/socials/tripadvisor.png", label: "TripAdvisor" },
-  whatsapp: { icon: "/icons/socials/whatsapp.png", label: "WhatsApp" },
-  googleMaps: { icon: "/icons/socials/google-maps.png", label: "Google Maps" },
+  facebook: { icon: "/icons/socials/facebook.webp", label: "Facebook" },
+  instagram: { icon: "/icons/socials/instagram.webp", label: "Instagram" },
+  youtube: { icon: "/icons/socials/youtube.webp", label: "YouTube" },
+  tripadvisor: { icon: "/icons/socials/tripadvisor.webp", label: "TripAdvisor" },
+  whatsapp: { icon: "/icons/socials/whatsapp.webp", label: "WhatsApp" },
+  googleMaps: { icon: "/icons/socials/google-maps.webp", label: "Google Maps" },
 };
 
 const socials = Object.entries(siteConfig.socials)

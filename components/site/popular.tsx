@@ -3,21 +3,21 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const items = [
-  { icon: "/icons/backpack.png", label: "Guided Hikes", desc: "Single-day and overnight hikes with experienced local guides who know every ridge and meadow." },
-  { icon: "/icons/camping.png", label: "Wild Camp", desc: "Multi-day tent-based expeditions deep into remote valleys, where the only sounds are wind and river." },
-  { icon: "/icons/mountain.png", label: "Summits", desc: "Peak-bagging routes for hikers ready to push beyond the treeline and claim a real objective." },
-  { icon: "/icons/waterfall.png", label: "Waterfall Treks", desc: "Trails that follow rushing rivers to hidden cascades, with swimming holes along the way." },
-  { icon: "/icons/bank.png", label: "Cultural Trails", desc: "Routes through ancient villages, monasteries, and farmland that reveal the region's living heritage." },
+  { icon: "/icons/backpack.webp", label: "Guided Hikes", desc: "Single-day and overnight hikes with experienced local guides who know every ridge and meadow." },
+  { icon: "/icons/camping.webp", label: "Wild Camp", desc: "Multi-day tent-based expeditions deep into remote valleys, where the only sounds are wind and river." },
+  { icon: "/icons/mountain.webp", label: "Summits", desc: "Peak-bagging routes for hikers ready to push beyond the treeline and claim a real objective." },
+  { icon: "/icons/waterfall.webp", label: "Waterfall Treks", desc: "Trails that follow rushing rivers to hidden cascades, with swimming holes along the way." },
+  { icon: "/icons/bank.webp", label: "Cultural Trails", desc: "Routes through ancient villages, monasteries, and farmland that reveal the region's living heritage." },
 ];
 
 export function Popular() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    "/homepage-images/popular-expendition-1.jpg",
-    "/homepage-images/popular-expenditon-2.jpg",
-    "/homepage-images/popular-expendition-3.jpg",
-    "/homepage-images/popular-expendition-4.JPG",
-    "/homepage-images/popular-expendition-5.jpg",
+    "/homepage-images/popular-expendition-1.webp",
+    "/homepage-images/popular-expenditon-2.webp",
+    "/homepage-images/popular-expendition-3.webp",
+    "/homepage-images/popular-expendition-5.webp",
+    "/homepage-images/popular-expendition-5.webp",
   ];
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-const heroImg = "/homepage-images/hero-image.jpg";
+const heroImg = "/homepage-images/hero-image.webp";
 
 export function Hero() {
   return (
