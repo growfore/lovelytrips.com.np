@@ -96,6 +96,14 @@ export interface ActivityData {
 // season, etc.) come back empty and the sections self-hide.
 type CmsFaqGroup = { title: string; items: { q: string; a: string }[] };
 
+// CMS day photos come back as { title, description, image } with no alt field.
+type CmsFeaturedImage = {
+  alt?: string;
+  image?: string;
+  title?: string;
+  description?: string;
+};
+
 type CmsTrip = {
   id: number;
   title: string;
@@ -156,7 +164,18 @@ export function mapActivity(trip: CmsTrip): ActivityData {
     accommodations: trip.accommodations ?? [],
     altitudeChart: [],
     images: trip.images ?? [],
-    itinerary: trip.itinerary ?? [],
+    itinerary: (trip.itinerary ?? []).map((it) => ({
+      ...it,
+      days: (it.days ?? []).map((d) => ({
+        ...d,
+        dayFeaturedImages: ((d.dayFeaturedImages as CmsFeaturedImage[]) ?? []).map((f) => ({
+          image: f.image ?? "",
+          alt:
+            f.alt ??
+            (f.title ? (f.description ? `${f.title} :: ${f.description}` : f.title) : ""),
+        })),
+      })),
+    })),
     additionalInfo,
     faqs: (trip.faq ?? []).map((g) => ({
       category: g.title,
