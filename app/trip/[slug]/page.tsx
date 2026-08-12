@@ -9,6 +9,8 @@ import { PackagePricing } from "@/components/site/package-pricing";
 import { PackageIncludes } from "@/components/site/package-includes";
 import { PackageAdditionalInfo, PackageFaq } from "@/components/site/package-faq";
 import { PackageSectionNav } from "@/components/site/package-section-nav";
+import { MobileBookingBar } from "@/components/site/mobile-booking-bar";
+import { ScrollToTopButton } from "@/components/site/scroll-to-top-button";
 import { Footer } from "@/components/site/footer";
 
 export async function generateMetadata({
@@ -39,7 +41,7 @@ export default async function PackagePage({
   const activity = await fetchActivity(slug);
 
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="min-h-screen bg-paper pb-16 md:pb-0">
         <PackageHero activity={activity} />
         <PackageSectionNav price={activity.price.toString()} />
         <PackageOverview activity={activity} />
@@ -50,6 +52,8 @@ export default async function PackagePage({
         <PackageIncludes activity={activity} />
         <PackageAdditionalInfo activity={activity} />
         <PackageFaq activity={activity} />
+        <MobileBookingBar price={activity.price.toString()} />
+        <ScrollToTopButton />
     </div>
   );
 }

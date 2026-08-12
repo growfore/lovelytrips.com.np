@@ -6,6 +6,7 @@ import {
   Clock,
   Flag,
   Gauge,
+  Languages,
   Map,
   MapPin,
   MountainSnow,
@@ -53,7 +54,7 @@ export function PackageOverview({ activity }: { activity: ActivityData }) {
               { label: "Meeting Point", value: activity.meetingPoint, Icon: MapPin },
               { label: "Drop-off Point", value: activity.dropOffPoint, Icon: Flag },
               { label: "Accommodations", value: activity.accommodations.join(", "), Icon: BedDouble },
-              { label: "Locations", value: activity.locations.join(", "), Icon: Map },
+              { label: "Languages", value: activity.locations.join(", "), Icon: Languages},
             ].map(({ label, value, Icon }) => (
               <div
                 key={label}
