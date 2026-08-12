@@ -50,7 +50,6 @@ export default async function PackagePage({
         <PackageIncludes activity={activity} />
         <PackageAdditionalInfo activity={activity} />
         <PackageFaq activity={activity} />
-        <Footer />
     </div>
   );
 }

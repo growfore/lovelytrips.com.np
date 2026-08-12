@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SectionTitle } from "./section-title";
 
 const items = [
@@ -23,7 +24,9 @@ export function FreeTrip() {
         ))}
       </div>
       <div className="text-center mt-10">
-        <button className="btn-solid-dark">Learn More</button>
+        <Link href="/explore" className="btn-solid-dark inline-block">
+          Learn More
+        </Link>
       </div>
     </section>
   );

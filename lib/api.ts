@@ -1,4 +1,26 @@
-export const API_BASE = process.env.API_BASE_URL || "https://api.lovelytrips.com.np";
+const API_BASE =
+  process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "";
+
+const API_ORIGIN = (() => {
+  try {
+    return new URL(API_BASE).origin;
+  } catch {
+    return "";
+  }
+})();
+
+// Fetches the platform API as this tenant. The X-Api-Key header resolves the
+// tenant on the backend — any frontend with the key can consume the tenant's
+// data, no slug or frontend coupling needed.
+export async function apiFetch(
+  path: string,
+  init?: RequestInit,
+): Promise<Response> {
+  const key = process.env.API_KEY || process.env.NEXT_PUBLIC_API_KEY || "";
+  const h = new Headers(init?.headers);
+  if (key) h.set("X-Api-Key", key);
+  return fetch(`${API_BASE}${path}`, { ...init, headers: h });
+}
 
 export interface AltitudePoint {
   id?: string;
@@ -69,13 +91,91 @@ export interface ActivityData {
   meetingPoint: string;
 }
 
+// Adapter from the CMS trip shape to the ActivityData the current design
+// components expect. Fields the CMS doesn't model (altitude chart, best
+// season, etc.) come back empty and the sections self-hide.
+type CmsFaqGroup = { title: string; items: { q: string; a: string }[] };
+
+type CmsTrip = {
+  id: number;
+  title: string;
+  slug: string;
+  overview?: string;
+  highlights?: string[];
+  inclusions?: string[];
+  exclusions?: string[];
+  price: number;
+  maxPrice?: number;
+  videoIntro?: string;
+  duration: string;
+  guestCapacity?: number;
+  difficultyLevel: string;
+  images?: string[];
+  itinerary: Itinerary[];
+  additionalInfo?: AdditionalInfo[];
+  faq?: CmsFaqGroup[] | null;
+  meetingPoint?: string;
+  dropOffPoint?: string;
+  languages?: string[];
+  accommodations?: string[];
+  meals?: string[];
+  maximumAltitude?: number;
+};
+
+export function mapActivity(trip: CmsTrip): ActivityData {
+  const additionalInfo = [...(trip.additionalInfo ?? [])];
+  const pricingIdx = additionalInfo.findIndex(
+    (i) => (i?.title || "").toLowerCase() === "pricing",
+  );
+  const priceBreakdown =
+    pricingIdx >= 0 ? additionalInfo[pricingIdx].description || "" : "";
+  if (pricingIdx >= 0) additionalInfo.splice(pricingIdx, 1);
+
+  return {
+    id: trip.id,
+    title: trip.title,
+    slug: trip.slug,
+    shortDescription: trip.overview || "",
+    fullDescription: "",
+    highlights: trip.highlights ?? [],
+    locations: trip.languages ?? [],
+    keywords: [],
+    inclusions: trip.inclusions ?? [],
+    exclusions: trip.exclusions ?? [],
+    price: trip.price,
+    maxPrice: trip.maxPrice || 0,
+    priceBreakdown,
+    maximumAltitude:
+      trip.maximumAltitude != null ? String(trip.maximumAltitude) : "",
+    transportation: "",
+    meals: Array.isArray(trip.meals) ? trip.meals.join(", ") : "",
+    bestSeason: "",
+    groupSize: trip.guestCapacity != null ? String(trip.guestCapacity) : "",
+    videoUrl: trip.videoIntro || "",
+    map: "",
+    accommodations: trip.accommodations ?? [],
+    altitudeChart: [],
+    images: trip.images ?? [],
+    itinerary: trip.itinerary ?? [],
+    additionalInfo,
+    faqs: (trip.faq ?? []).map((g) => ({
+      category: g.title,
+      faqs: (g.items ?? []).map((i) => ({ question: i.q, answer: i.a })),
+    })),
+    duration: trip.duration,
+    difficultyLevel: trip.difficultyLevel,
+    dropOffPoint: trip.dropOffPoint || "",
+    meetingPoint: trip.meetingPoint || "",
+  };
+}
+
 export async function fetchActivity(slug: string): Promise<ActivityData> {
-  const res = await fetch(`${API_BASE}/api/v1/activity/slug/${slug}`, {
+  const res = await apiFetch(`/activity/slug/${slug}`, {
     next: { revalidate: 60 },
   });
   if (!res.ok) throw new Error("Failed to fetch activity");
   const json = await res.json();
-  return json.data;
+  return mapActivity(json.data);
 }
 
 export interface InfoPage {
@@ -91,7 +191,7 @@ export interface InfoPage {
 }
 
 export async function fetchInfoPage(slug: string): Promise<InfoPage> {
-  const res = await fetch(`${API_BASE}/api/v1/info-page/slug/${slug}`, {
+  const res = await apiFetch(`/info-page/slug/${slug}`, {
     next: { revalidate: 60 },
   });
   if (!res.ok) throw new Error("Failed to fetch info page");
@@ -100,8 +200,34 @@ export async function fetchInfoPage(slug: string): Promise<InfoPage> {
 }
 
 export function imgUrl(path: string): string {
-  if (path.startsWith("http")) return path;
-  return `${API_BASE}${path}`;
+  if (!path) return "";
+  if (/^https?:\/\//i.test(path)) return path;
+  if (path.startsWith("/")) return `${API_ORIGIN}${path}`;
+  return path;
+}
+
+export interface SiteConfig {
+  name: string;
+  logo: string;
+  email: string;
+  phoneNumbers: { phone: string }[];
+  whatsAppNumber: string;
+  address: {
+    city: string;
+    street: string;
+    country: string;
+    district: string;
+    postalCode: string;
+  };
+  socials: Record<string, string>;
+  experience: string;
+}
+
+export async function fetchSiteConfig(): Promise<SiteConfig> {
+  const res = await apiFetch(`/site-config`, { next: { revalidate: 60 } });
+  if (!res.ok) throw new Error("Failed to fetch site config");
+  const json = await res.json();
+  return json.data.config;
 }
 
 export interface MenuItem {
@@ -122,12 +248,12 @@ export const DEFAULT_MENU_ITEMS: MenuItem[] = [
         label: "Long Trek",
         url: "#",
         children: [
-          { id: "drtfhu5p2", label: "Annapurna Base Camp Trek", url: "/package/annapurna-base-camp-trek" },
-          { id: "7nwyqnymc", label: "Annapurna Circuit Trek", url: "/package/annapurna-circuit-trek" },
-          { id: "f36vpp0aj", label: "Mardi Himal Trek", url: "/package/mardi-himal-trek" },
-          { id: "x8hlwqysx", label: "Annapurna Sanctuary Five Hill Trek", url: "/package/annapurna-sanctuary-five-hill-trek" },
-          { id: "evk8tsstp", label: "Khopra Ridge Trek", url: "/package/khopra-ridge-trek" },
-          { id: "a7dzs478w", label: "Annapurna Base Camp Poon Hill Trek", url: "/package/annapurna-base-camp-poon-hill-trek" },
+          { id: "drtfhu5p2", label: "Annapurna Base Camp Trek", url: "/trip/annapurna-base-camp-trek" },
+          { id: "7nwyqnymc", label: "Annapurna Circuit Trek", url: "/trip/annapurna-circuit-trek" },
+          { id: "f36vpp0aj", label: "Mardi Himal Trek", url: "/trip/mardi-himal-trek" },
+          { id: "x8hlwqysx", label: "Annapurna Sanctuary Five Hill Trek", url: "/trip/annapurna-sanctuary-five-hill-trek" },
+          { id: "evk8tsstp", label: "Khopra Ridge Trek", url: "/trip/khopra-ridge-trek" },
+          { id: "a7dzs478w", label: "Annapurna Base Camp Poon Hill Trek", url: "/trip/annapurna-base-camp-poon-hill-trek" },
         ],
       },
       {
@@ -135,11 +261,11 @@ export const DEFAULT_MENU_ITEMS: MenuItem[] = [
         label: "Short Trek",
         url: "#",
         children: [
-          { id: "u9z1nwz5k", label: "Mohare Danda Trek", url: "/package/mohare-danda-trek" },
-          { id: "jx6tj9tdu", label: "Ghorepani Poon Hill Trek", url: "/package/ghorepani-poonhill-trek" },
-          { id: "0hq9dgwga", label: "Ghandruk Village Trek", url: "/package/ghandruk-village-trek" },
-          { id: "iqakub8xa", label: "Ghorepani Ghandruk Trek", url: "/package/ghorepani-ghandruk-trek" },
-          { id: "y2b7matg6", label: "Panchase Trek", url: "/package/panchase-trek" },
+          { id: "u9z1nwz5k", label: "Mohare Danda Trek", url: "/trip/mohare-danda-trek" },
+          { id: "jx6tj9tdu", label: "Ghorepani Poon Hill Trek", url: "/trip/ghorepani-poonhill-trek" },
+          { id: "0hq9dgwga", label: "Ghandruk Village Trek", url: "/trip/ghandruk-village-trek" },
+          { id: "iqakub8xa", label: "Ghorepani Ghandruk Trek", url: "/trip/ghorepani-ghandruk-trek" },
+          { id: "y2b7matg6", label: "Panchase Trek", url: "/trip/panchase-trek" },
         ],
       },
     ],
@@ -149,8 +275,8 @@ export const DEFAULT_MENU_ITEMS: MenuItem[] = [
     label: "Hiking",
     url: "#",
     children: [
-      { id: "iowwuhie1", label: "Australian Camp and Dhampus Hike", url: "/package/australian-base-camp-dhampus-hiking" },
-      { id: "exkanpe8s", label: "Sarangkot Hiking", url: "/package/sarangkot-hiking" },
+      { id: "iowwuhie1", label: "Australian Camp and Dhampus Hike", url: "/trip/australian-base-camp-dhampus-hiking" },
+      { id: "exkanpe8s", label: "Sarangkot Hiking", url: "/trip/sarangkot-hiking" },
     ],
   },
   {
@@ -158,11 +284,11 @@ export const DEFAULT_MENU_ITEMS: MenuItem[] = [
     label: "Tour",
     url: "#",
     children: [
-      { id: "0q1twkaxf", label: "Lower Mustang Jeep Tour", url: "/package/lower-mustang-jeep-tour" },
-      { id: "r0z90l1pg", label: "Upper Mustang Jeep Tour", url: "/package/upper-mustang-jeep-tour" },
-      { id: "ggc9lhmqa", label: "Pokhara Half Day Tour", url: "/package/pokhara-half-day-tour" },
-      { id: "1how0be6j", label: "Pokhara Full Day Tour", url: "/package/pokhara-full-day-tour" },
-      { id: "fb13tg73a", label: "Nepal Deluxe Tour", url: "/package/luxury-nepal-tour" },
+      { id: "0q1twkaxf", label: "Lower Mustang Jeep Tour", url: "/trip/lower-mustang-jeep-tour" },
+      { id: "r0z90l1pg", label: "Upper Mustang Jeep Tour", url: "/trip/upper-mustang-jeep-tour" },
+      { id: "ggc9lhmqa", label: "Pokhara Half Day Tour", url: "/trip/pokhara-half-day-tour" },
+      { id: "1how0be6j", label: "Pokhara Full Day Tour", url: "/trip/pokhara-full-day-tour" },
+      { id: "fb13tg73a", label: "Nepal Deluxe Tour", url: "/trip/luxury-nepal-tour" },
     ],
   },
   {
@@ -186,27 +312,38 @@ export function normalizeMenuUrl(rawUrl: string): string {
   return trimmed;
 }
 
+// Client-safe (uses NEXT_PUBLIC envs) — consumed by the client nav.
 export async function fetchMenuItems(): Promise<MenuItem[]> {
   try {
-    const res = await fetch(`${API_BASE}/api/v1/menu`, {
-      next: { revalidate: 3600 },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL || ""}/menu`,
+      {
+        headers: { "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "" },
+        next: { revalidate: 3600 },
+      },
+    );
     if (!res.ok) return DEFAULT_MENU_ITEMS;
     const json = await res.json();
 
-    const extractItems = (obj: any): MenuItem[] => {
-      if (!obj) return [];
-      if (Array.isArray(obj)) return obj;
-      if (obj.data) {
-        if (Array.isArray(obj.data)) return obj.data;
-        if (obj.data.items && Array.isArray(obj.data.items)) {
-          if (obj.data.items[0]?.data?.items && Array.isArray(obj.data.items[0].data.items)) {
-            return obj.data.items[0].data.items;
+    const extractItems = (obj: unknown): MenuItem[] => {
+      if (!obj || typeof obj !== "object") return [];
+      if (Array.isArray(obj)) return obj as MenuItem[];
+      const o = obj as Record<string, unknown>;
+      const data = o.data;
+      if (data && typeof data === "object" && !Array.isArray(data)) {
+        const dataItems = (data as Record<string, unknown>).items;
+        if (Array.isArray(dataItems)) {
+          const first = dataItems[0] as Record<string, unknown> | undefined;
+          const nested = first?.data;
+          if (nested && typeof nested === "object" && !Array.isArray(nested)) {
+            const innerItems = (nested as Record<string, unknown>).items;
+            if (Array.isArray(innerItems)) return innerItems as MenuItem[];
           }
-          return obj.data.items;
+          return dataItems as MenuItem[];
         }
       }
-      if (obj.items && Array.isArray(obj.items)) return obj.items;
+      const items = o.items;
+      if (Array.isArray(items)) return items as MenuItem[];
       return [];
     };
 

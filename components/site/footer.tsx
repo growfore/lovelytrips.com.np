@@ -1,5 +1,6 @@
 import { Phone, Mail, Send } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
+import { fetchSiteConfig } from "@/lib/api";
 
 const socialIconByKey: Record<string, { icon: string; label: string }> = {
   facebook: { icon: "/icons/socials/facebook.webp", label: "Facebook" },
@@ -10,11 +11,38 @@ const socialIconByKey: Record<string, { icon: string; label: string }> = {
   googleMaps: { icon: "/icons/socials/google-maps.webp", label: "Google Maps" },
 };
 
-const socials = Object.entries(siteConfig.socials)
-  .filter(([, href]) => href)
-  .map(([key, href]) => ({ href, ...socialIconByKey[key] }));
+export async function Footer() {
+  let cfg;
+  try {
+    cfg = await fetchSiteConfig();
+  } catch {
+    cfg = null;
+  }
 
-export function Footer() {
+  const name = cfg?.name || siteConfig.name;
+  const phone = cfg?.phoneNumbers?.[0]?.phone || siteConfig.phone;
+  const email = cfg?.email || siteConfig.email;
+
+  const apiSocials = cfg?.socials ? Object.entries(cfg.socials) : [];
+  const waHref =
+    cfg?.whatsAppNumber && socialIconByKey.whatsapp
+      ? `https://wa.me/${cfg.whatsAppNumber}`
+      : "";
+  const socials = apiSocials.length
+    ? apiSocials
+        .map(([key, href]) =>
+          socialIconByKey[key] ? { href, ...socialIconByKey[key] } : null,
+        )
+        .filter((s): s is { href: string; icon: string; label: string } => !!s)
+    : Object.entries(siteConfig.socials)
+        .filter(([, href]) => href)
+        .map(([key, href]) =>
+          socialIconByKey[key]
+            ? { href: key === "whatsapp" && waHref ? waHref : href, ...socialIconByKey[key] }
+            : null,
+        )
+        .filter((s): s is { href: string; icon: string; label: string } => !!s);
+
   return (
     <footer className="relative  min-h-[40vh] flex items-end -mt-32">
       <div className="absolute inset-0 bg-white [mask-image:url(/footer-mask.webp)] [-webkit-mask-image:url(/footer-mask.webp)] [mask-size:cover] [-webkit-mask-size:cover] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]" />
@@ -30,7 +58,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-1">
             <div className="flex items-center gap-2">
               <Phone size={14} />
-              <span>{siteConfig.phone}</span>
+              <span>{phone}</span>
             </div>
           </div>
 
@@ -38,13 +66,13 @@ export function Footer() {
             <svg viewBox="0 0 40 20" className="w-10 h-5 opacity-60" fill="none" stroke="black" strokeWidth="1.5">
               <path d="M 2 18 L 8 8 L 14 14 L 20 4 L 26 14 L 32 6 L 38 18" />
             </svg>
-            <span className="font-script text-base ">Lovely Trips</span>
+            <span className="font-script text-base ">{name}</span>
           </div>
 
           <div className="flex flex-col items-center md:items-end gap-1">
             <div className="flex items-center gap-2">
               <Mail size={14} />
-              <span>{siteConfig.email}</span>
+              <span>{email}</span>
             </div>
           </div>
         </div>

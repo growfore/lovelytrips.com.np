@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const items = [
@@ -73,9 +74,12 @@ export function Popular() {
             </div>
           ))}
         </div>
-        <button className="border border-white text-white px-8 py-3 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:bg-white hover:text-ink transition-all">
+        <Link
+          href="/explore"
+          className="inline-block border border-white text-white px-8 py-3 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:bg-white hover:text-ink transition-all"
+        >
           View All Routes
-        </button>
+        </Link>
       </div>
     </section>
   );

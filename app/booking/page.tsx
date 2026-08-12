@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/siteConfig";
+import { apiFetch } from "@/lib/api";
 import ContactForm from "@/components/booking-form";
 
 export const revalidate = 3600;
 
 
 export default async function BookingPage() {
-  const res = await fetch("https://api.lovelytrips.com.np/api/v1/activity?page=1&limit=100", {cache: "force-cache"})
+  const res = await apiFetch(
+    `/activity?page=1&limit=100`,
+    { cache: "force-cache" },
+  );
 
   const json = await res.json();
 

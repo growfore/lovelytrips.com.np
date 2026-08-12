@@ -40,7 +40,6 @@ import {
 } from "@/components/ui/form"
 
 import { siteConfig } from "@/lib/siteConfig"
-import { API_BASE } from "@/lib/api"
 
 const DURATION_VALUES = [
   "1-3 Days",
@@ -305,9 +304,12 @@ export function DesignTripForm() {
         <p>${escapeHtml(data.otherMentions || "None").replace(/\n/g, "<br/>")}</p>
       `
 
-      const res = await fetch(`${API_BASE}/api/v1/email/send`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || ""}/email/send`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "",
+        },
         body: JSON.stringify({
           from: "noreply@lovelytrips.com.np",
           to: siteConfig.email,

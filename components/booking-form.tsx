@@ -104,7 +104,10 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/email/send`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "",
+          },
           body: JSON.stringify({
             from: data.email,
             to: "essencettt@gmail.com",
