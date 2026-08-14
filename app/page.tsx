@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/site/hero";
 import { Expeditions } from "@/components/site/expeditions";
 import { Featured } from "@/components/site/featured";
+import { BlogsPreview } from "@/components/site/blogs-preview";
 import { WhyChoose } from "@/components/site/why-choose";
 import { Steps } from "@/components/site/steps";
 import { Popular } from "@/components/site/popular";
@@ -36,6 +37,7 @@ export default function Home() {
       <Gallery />
       <Testimonial />
       <FreeTrip />
+      <BlogsPreview />
       <WhyChoose />
       <ContactForm />
     </div>
