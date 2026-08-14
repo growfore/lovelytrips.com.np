@@ -24,6 +24,7 @@ interface NavProps {
 const FRONTEND_LINKS: MenuItem[] = [
   { id: "fe-home", label: "Home", url: "/" },
   { id: "fe-explore", label: "Explore", url: "/explore" },
+  { id: "fe-blog", label: "Blog", url: "/blog" },
   { id: "fe-gallery", label: "Gallery", url: "/gallery" },
   { id: "fe-about", label: "About", url: "/about" },
   { id: "fe-contact", label: "Contact", url: "/contact" },

@@ -220,6 +220,36 @@ export async function fetchInfoPage(slug: string): Promise<InfoPage> {
   return json.infoPage;
 }
 
+export interface Blog {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  coverImage?: string | null;
+  publishedAt?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  author?: { name?: string | null } | null;
+  category?: { categoryName?: string | null; categoryHandle?: string | null } | null;
+}
+
+export async function fetchBlogs(query = ""): Promise<Blog[]> {
+  const res = await apiFetch(`/blogs/published?page=1&limit=50${query}`, {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) throw new Error("Failed to fetch blogs");
+  const json = await res.json();
+  return (json.blogs ?? []) as Blog[];
+}
+
+export async function fetchBlogBySlug(slug: string): Promise<Blog> {
+  const res = await apiFetch(`/blogs/${slug}`, { next: { revalidate: 60 } });
+  if (!res.ok) throw new Error("Failed to fetch blog");
+  return (await res.json()) as Blog;
+}
+
 export function imgUrl(path: string): string {
   if (!path) return "";
   if (/^https?:\/\//i.test(path)) return path;
