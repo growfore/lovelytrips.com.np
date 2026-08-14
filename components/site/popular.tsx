@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 const items = [
   { icon: "/icons/backpack.webp", label: "Guided Hikes", desc: "Single-day and overnight hikes with experienced local guides who know every ridge and meadow." },
   { icon: "/icons/camping.webp", label: "Wild Camp", desc: "Multi-day tent-based expeditions deep into remote valleys, where the only sounds are wind and river." },
-  { icon: "/icons/mountain.webp", label: "Summits", desc: "Peak-bagging routes for hikers ready to push beyond the treeline and claim a real objective." },
-  { icon: "/icons/waterfall.webp", label: "Waterfall Treks", desc: "Trails that follow rushing rivers to hidden cascades, with swimming holes along the way." },
+  { icon: "/icons/homestay.png", label: "Homestays", desc: "Peak-bagging routes for hikers ready to push beyond the treeline and claim a real objective." },
+  // { icon: "/icons/waterfall.webp", label: "Waterfall Treks", desc: "Trails that follow rushing rivers to hidden cascades, with swimming holes along the way." },
   { icon: "/icons/bank.webp", label: "Cultural Trails", desc: "Routes through ancient villages, monasteries, and farmland that reveal the region's living heritage." },
 ];
 
@@ -58,14 +58,14 @@ export function Popular() {
       </div>
       <div className="relative z-10 max-w-3xl mx-auto px-4 md:px-6 text-center text-white">
         <h2 className="text-4xl md:text-5xl divider-dash inline-flex items-center justify-center w-full mb-8">
-          <span>Popular Expeditions</span>
+          <span>Popular Experiences</span>
         </h2>
         <p className="text-sm md:text-base leading-relaxed opacity-90 mb-10 font-light">
           From weekend introductions to two-week traverses across the high country &mdash; these are
           the trips travelers ask us about most, month after month. Each route is led by a certified
           mountain guide and includes all meals, permits, and equipment.
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3  md:grid-cols-5 justify-center gap-4 mb-10 text-white">
+        <div className="grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 justify-center gap-4 mb-10 text-white">
           {items.map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-2 max-w-[140px]">
               <Image src={item.icon} alt={item.label} width={56} height={56} className="brightness-0 invert opacity-80" />

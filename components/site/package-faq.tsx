@@ -11,6 +11,8 @@ import { SectionTitle } from "./section-title";
 
 const INFO_ICON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23787f55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E")`;
 
+const CHEVRON_ICON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23787f55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E")`;
+
 export function PackageAdditionalInfo({ activity }: { activity: ActivityData }) {
   if (activity.additionalInfo.length === 0) return null;
   return (
@@ -24,7 +26,7 @@ export function PackageAdditionalInfo({ activity }: { activity: ActivityData }) 
               <div
                 className="text-[14px] text-muted-ink font-light leading-relaxed
                   [&_ul]:space-y-2 [&_li]:flex [&_li]:items-start [&_li]:gap-3 [&_li]:before:content-[''] [&_li]:before:block [&_li]:before:w-4 [&_li]:before:h-4 [&_li]:before:shrink-0 [&_li]:before:bg-[image:var(--icon)] [&_li]:before:bg-contain [&_li]:before:bg-no-repeat [&_li]:before:mt-0.5 [&_li_p]:m-0"
-                style={{ "--icon": INFO_ICON } as React.CSSProperties}
+                style={{ "--icon": CHEVRON_ICON } as React.CSSProperties}
                 dangerouslySetInnerHTML={{ __html: info.description }}
               />
             </div>

@@ -1,15 +1,22 @@
+import Link from "next/link";
 import { SectionTitle } from "./section-title";
 
 export function Steps() {
   return (
     <section className="relative py-20 px-6 md:px-16 overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_40%,transparent_100%)]">
+      {/*<div className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_40%,transparent_100%)]">
         <img src="/steps-mobile.webp" alt="" className="h-full w-full object-contain object-center md:hidden" />
         <img src="/steps.webp" alt="" className="h-full w-full object-contain object-center max-md:hidden" />
-      </div>
+      </div>*/}
 
-      <SectionTitle>How to Join a Trip</SectionTitle>
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <SectionTitle>Annapurna Trekking Route</SectionTitle>
+      {/*<div className="aspect-square w-full mask-organic">*/}
+      <div className="flex flex-col gap-1 items-center justify-center">
+        <img src="/maps/annapurna-route-map.png" alt="" className="h-full w-full object-contain" />
+        <Link href="/maps/annapurna-route-map.pdf" className="btn-solid-dark inline-block">View in PDF</Link>
+      </div>
+      {/*</div>*/}
+      {/*<div className="relative z-10 max-w-4xl mx-auto">
         <div className="relative min-h-[110vh] md:min-h-[200vh]">
           {[
             { n: "01", t: "Pick a Trip", d: "Browse our routes and choose one matching your fitness and dates.", pos: "left-[22%] md:left-[2%] top-[2%] md:top-[8%]", rot: "md:-rotate-8" },
@@ -26,7 +33,7 @@ export function Steps() {
             </div>
           ))}
         </div>
-      </div>
+      </div>*/}
     </section>
   );
 }

@@ -2,38 +2,31 @@ import { SectionTitle } from "./section-title";
 import { TripRow } from "./trip-row";
 
 const trip1 = "/homepage-images/hikes-for-beginners.webp";
-const trip2 = "/homepage-images/trip-to-lakes.webp";
+const trip2 = "/gallery-images/trekking.webp";
 const trip3 = "/homepage-images/hikes-with-a-tent.webp";
-const trip4 = "/homepage-images/hikes-to-the-summit.webp";
 
 export function Expeditions() {
   return (
     <section className="relative py-20 px-6 md:px-16 bg-paper">
-      <SectionTitle>Our Expeditions</SectionTitle>
+      <SectionTitle>Our  Trips</SectionTitle>
       <div className="max-w-5xl mx-auto space-y-16">
         <TripRow
           img={trip1}
-          title="Hikes for Beginners"
+          title="Hiking"
           reverse={false}
           text="No experience needed. Gentle elevation, short daily stages, and a guide who explains everything — from lacing your boots to reading a weather window. The perfect first taste of high country."
         />
         <TripRow
           img={trip2}
-          title="Trips to Lakes"
+          title="Trekking"
           reverse={true}
-          text="Multi-day loops that link the most beautiful alpine lakes in the range. Swim at 2,400 meters, sleep beside water so still it doubles the sky, and photograph reflections that no phone can properly hold."
+          text="Multi-day journeys through Nepal’s most scenic mountain trails. Walk through peaceful villages, dense rhododendron forests, and rugged Himalayan landscapes while experiencing the mountains at your own pace."
         />
         <TripRow
           img={trip3}
-          title="Hikes with a Tent"
+          title="Camping"
           reverse={false}
           text="Fully autonomous expeditions — everything you need on your back, everything you leave behind is a footprint. We teach you to pitch, cook, and navigate as you go. Come home a different kind of confident."
-        />
-        <TripRow
-          img={trip4}
-          title="Hikes to the Summit"
-          reverse={true}
-          text="Peak-bagging routes for hikers ready for a real objective. Technical scree, exposed ridgelines, and the specific quiet that only exists on a summit before sunrise. Two guides per group, always."
         />
       </div>
     </section>

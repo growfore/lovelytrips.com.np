@@ -1,6 +1,7 @@
+import { RandomHeaderImage } from "@/components/site/random-header-image";
+import { WhyChoose } from "@/components/site/why-choose";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -8,65 +9,16 @@ export const metadata: Metadata = {
     "Meet the team behind Lovely Trips. Local trekking experts crafting authentic Himalayan adventures.",
 };
 
-const values = [
-  {
-    icon: "/icons/mountain.webp",
-    title: "Local Expertise",
-    desc: "Our team lives and breathes Nepal. We know the trails, the culture, and the hidden gems that guidebooks miss.",
-    span: "md:col-span-3",
-    variant: "ink" as const,
-  },
-  {
-    icon: "/icons/waterfall.webp",
-    title: "Responsible Travel",
-    desc: "We partner with local communities, employ local guides, and ensure your visit supports the places you explore.",
-    span: "md:col-span-3",
-    variant: "mist" as const,
-  },
-  {
-    icon: "/icons/backpack.webp",
-    title: "Tailor-Made Trips",
-    desc: "Every itinerary is built around you — your fitness, your interests, your dream trip.",
-    span: "md:col-span-2",
-    variant: "card" as const,
-  },
-  {
-    icon: "/icons/group.webp",
-    title: "Friendly Local Guides",
-    desc: "Experienced guides and porters who turn a trek into a story worth telling.",
-    span: "md:col-span-2",
-    variant: "card" as const,
-  },
-  {
-    icon: "/icons/price-tag.webp",
-    title: "Unbeatable Value",
-    desc: "Local prices without compromising quality. Transparent pricing, no hidden fees.",
-    span: "md:col-span-2",
-    variant: "card" as const,
-  },
-  {
-    icon: "/icons/like.webp",
-    title: "Loved by Travelers",
-    desc: "From your first inquiry to your return flight, our team is a phone call away, anytime.",
-    span: "md:col-span-6",
-    variant: "horizontal" as const,
-  },
-];
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-paper overflow-x-clip">
       <section className="relative h-[50vh] min-h-[400px] w-full">
         <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
-          <img
-            src="/about-us-section-background.webp"
-            alt="Nepal mountains"
-            className="w-full h-full object-cover"
-          />
+          <RandomHeaderImage />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/5" />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/10 to-transparent" />
         </div>
-        <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 px-6">
+        <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 px-6 container">
           <div className="max-w-5xl mx-auto">
             <nav className="text-[11px] tracking-[0.2em] uppercase text-white/70 mb-3">
               <Link href="/" className="hover:text-white">Home</Link>
@@ -80,7 +32,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 container mx-auto">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl">
             <p className="font-script text-2xl md:text-3xl text-forest">Our Mission</p>
@@ -109,82 +61,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-mist/60 bg-mist/20 py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="font-script text-2xl text-forest">The Lovely Trips promise</p>
-            <h2 className="mt-1 text-2xl md:text-3xl font-bold text-ink">
-              Why Travel With Us
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
-            {values.map((v) => {
-              if (v.variant === "ink") {
-                return (
-                  <div
-                    key={v.title}
-                    className={`${v.span} rounded-xl bg-ink p-9 text-white flex flex-col md:flex-row md:items-center justify-center gap-6 min-h-[280px]`}
-                  >
-                    <div className="flex items-center justify-center rounded-full bg-white/10 size-16 shrink-0">
-                      <Image src={v.icon} alt={v.title} width={34} height={34} className="opacity-90" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold">{v.title}</h3>
-                      <p className="mt-2 text-sm text-white/80 leading-relaxed">{v.desc}</p>
-                    </div>
-                  </div>
-                );
-              }
-              if (v.variant === "mist") {
-                return (
-                  <div
-                    key={v.title}
-                    className={`${v.span} rounded-xl bg-mist/60 p-9 flex flex-col md:flex-row md:items-center justify-center gap-6 min-h-[280px] border border-mist`}
-                  >
-                    <div className="flex items-center justify-center rounded-full bg-white size-16 shrink-0">
-                      <Image src={v.icon} alt={v.title} width={34} height={34} className="opacity-90" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-ink">{v.title}</h3>
-                      <p className="mt-2 text-sm text-muted-ink leading-relaxed">{v.desc}</p>
-                    </div>
-                  </div>
-                );
-              }
-              if (v.variant === "horizontal") {
-                return (
-                  <div
-                    key={v.title}
-                    className={`${v.span} rounded-xl border border-mist/60 bg-white p-9 flex flex-col sm:flex-row sm:items-center justify-center gap-6 min-h-[150px]`}
-                  >
-                    <div className="flex items-center justify-center rounded-full bg-mist/40 size-16 shrink-0">
-                      <Image src={v.icon} alt={v.title} width={34} height={34} className="opacity-80" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-ink">{v.title}</h3>
-                      <p className="mt-2 text-sm text-muted-ink leading-relaxed">{v.desc}</p>
-                    </div>
-                  </div>
-                );
-              }
-              return (
-                <div
-                  key={v.title}
-                  className={`${v.span} rounded-xl border border-mist/60 bg-white p-8 flex flex-col items-start justify-between gap-6 min-h-[240px] hover:-translate-y-1 hover:shadow-md transition-all`}
-                >
-                  <div className="flex items-center justify-center rounded-full bg-mist/40 size-14 shrink-0">
-                    <Image src={v.icon} alt={v.title} width={30} height={30} className="opacity-80" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-ink">{v.title}</h3>
-                    <p className="mt-2 text-sm text-muted-ink leading-relaxed">{v.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <WhyChoose />
 
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">

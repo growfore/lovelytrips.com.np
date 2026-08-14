@@ -70,7 +70,11 @@ export default async function InfoPage({
             [&_img]:w-full [&_img]:rounded-xl [&_img]:my-6
             [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ul]:my-4
             [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_ol]:my-4
-            [&_blockquote]:border-l-2 [&_blockquote]:border-forest [&_blockquote]:pl-4 [&_blockquote]:my-6 [&_blockquote]:italic"
+            [&_blockquote]:border-l-2 [&_blockquote]:border-forest [&_blockquote]:pl-4 [&_blockquote]:my-6 [&_blockquote]:italic
+            [&_table]:w-full [&_table]:border-collapse [&_table]:my-6
+            [&_th]:text-ink [&_th]:font-semibold [&_th]:text-left [&_th]:py-3 [&_th]:px-4 [&_th]:border-b [&_th]:border-ink/15
+            [&_td]:py-2.5 [&_td]:px-4 [&_td]:border-b [&_td]:border-ink/10
+            [&_tr:last-child_td]:border-b-0"
           dangerouslySetInnerHTML={{ __html: page.content }}
         />
       </section>

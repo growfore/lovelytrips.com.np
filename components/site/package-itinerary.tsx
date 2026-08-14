@@ -55,7 +55,7 @@ export function PackageItinerary({ activity }: { activity: ActivityData }) {
                     {String(day.day).padStart(2, "0")}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-semibold text-ink">{day.title}</div>
+                    <div className="text-sm font-semibold text-ink -ml-5">{day.title}</div>
                   </div>
                   <ChevronDown
                     className={`shrink-0 w-5 h-5 text-muted-ink transition-transform duration-200 ${

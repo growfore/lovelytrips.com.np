@@ -8,7 +8,6 @@ const SECTIONS = [
   { href: "#overview", label: "Overview" },
   { href: "#gallery", label: "Gallery" },
   { href: "#itinerary", label: "Itinerary" },
-  { href: "#pricing", label: "Pricing" },
   { href: "#includes", label: "Includes" },
   { href: "#info", label: "Info" },
   { href: "#faq", label: "FAQ" },
@@ -52,7 +51,7 @@ export function PackageSectionNav({ price }: { price: string }) {
 
   return (
     <nav className="sticky top-0 z-40 md:top-4">
-      <div className="flex items-center gap-4 border-b border-ink/50 bg-paper/90 backdrop-blur md:mx-auto md:max-w-5xl md:overflow-hidden md:rounded-full md:border-ink/50 md:shadow-lg">
+      <div className="flex items-center gap-4 bg-paper/90 backdrop-blur md:mx-auto md:max-w-5xl md:overflow-hidden md:rounded-full md:border-ink/50 md:shadow-lg">
         <div ref={scroller} className="flex items-center gap-1 px-3 py-3 overflow-x-auto whitespace-nowrap no-scrollbar">
           {SECTIONS.map(({ href, label }) => (
             <a
@@ -76,7 +75,7 @@ export function PackageSectionNav({ price }: { price: string }) {
           <div className="text-sm whitespace-nowrap">
             Starting from <b>${price}</b>/person
           </div>
-          <Button className="rounded-full">
+          <Button asChild className="rounded-full">
             <Link href={"/booking"}>
               Book Now
             </Link>

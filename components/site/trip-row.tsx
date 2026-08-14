@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function TripRow({
   img,
   title,
@@ -19,7 +21,7 @@ export function TripRow({
       <div className="text-center">
         <h3 className="text-3xl md:text-4xl font-script mb-4 text-ink">{title}</h3>
         <p className="text-[15px] leading-relaxed text-muted-ink mb-6 font-light">{text}</p>
-        <button className="btn-solid-dark mx-auto">Learn More</button>
+        <Link href="/explore" className="btn-solid-dark mx-auto inline-block">Learn More</Link>
       </div>
     </div>
   );

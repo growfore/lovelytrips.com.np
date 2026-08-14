@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/site/hero";
-import { About } from "@/components/site/about";
 import { Expeditions } from "@/components/site/expeditions";
-import { Stats } from "@/components/site/stats";
+import { Featured } from "@/components/site/featured";
+import { WhyChoose } from "@/components/site/why-choose";
 import { Steps } from "@/components/site/steps";
 import { Popular } from "@/components/site/popular";
 import { Gallery } from "@/components/site/gallery";
@@ -29,14 +29,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-paper overflow-x-hidden">
       <Hero />
-      <About />
       <Expeditions />
-      <Stats />
+      <Featured />
       <Steps />
       <Popular />
       <Gallery />
       <Testimonial />
       <FreeTrip />
+      <WhyChoose />
       <ContactForm />
     </div>
   );

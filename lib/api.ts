@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 const API_BASE =
   process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "";
 
@@ -256,74 +258,6 @@ export interface MenuItem {
   children?: MenuItem[];
 }
 
-export const DEFAULT_MENU_ITEMS: MenuItem[] = [
-  {
-    id: "qpl9399nn",
-    label: "Trekking",
-    url: "#",
-    children: [
-      {
-        id: "m62y9sb3c",
-        label: "Long Trek",
-        url: "#",
-        children: [
-          { id: "drtfhu5p2", label: "Annapurna Base Camp Trek", url: "/trip/annapurna-base-camp-trek" },
-          { id: "7nwyqnymc", label: "Annapurna Circuit Trek", url: "/trip/annapurna-circuit-trek" },
-          { id: "f36vpp0aj", label: "Mardi Himal Trek", url: "/trip/mardi-himal-trek" },
-          { id: "x8hlwqysx", label: "Annapurna Sanctuary Five Hill Trek", url: "/trip/annapurna-sanctuary-five-hill-trek" },
-          { id: "evk8tsstp", label: "Khopra Ridge Trek", url: "/trip/khopra-ridge-trek" },
-          { id: "a7dzs478w", label: "Annapurna Base Camp Poon Hill Trek", url: "/trip/annapurna-base-camp-poon-hill-trek" },
-        ],
-      },
-      {
-        id: "aa79522ew",
-        label: "Short Trek",
-        url: "#",
-        children: [
-          { id: "u9z1nwz5k", label: "Mohare Danda Trek", url: "/trip/mohare-danda-trek" },
-          { id: "jx6tj9tdu", label: "Ghorepani Poon Hill Trek", url: "/trip/ghorepani-poonhill-trek" },
-          { id: "0hq9dgwga", label: "Ghandruk Village Trek", url: "/trip/ghandruk-village-trek" },
-          { id: "iqakub8xa", label: "Ghorepani Ghandruk Trek", url: "/trip/ghorepani-ghandruk-trek" },
-          { id: "y2b7matg6", label: "Panchase Trek", url: "/trip/panchase-trek" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "2it8baf8s",
-    label: "Hiking",
-    url: "#",
-    children: [
-      { id: "iowwuhie1", label: "Australian Camp and Dhampus Hike", url: "/trip/australian-base-camp-dhampus-hiking" },
-      { id: "exkanpe8s", label: "Sarangkot Hiking", url: "/trip/sarangkot-hiking" },
-    ],
-  },
-  {
-    id: "asn2i8qkh",
-    label: "Tour",
-    url: "#",
-    children: [
-      { id: "0q1twkaxf", label: "Lower Mustang Jeep Tour", url: "/trip/lower-mustang-jeep-tour" },
-      { id: "r0z90l1pg", label: "Upper Mustang Jeep Tour", url: "/trip/upper-mustang-jeep-tour" },
-      { id: "ggc9lhmqa", label: "Pokhara Half Day Tour", url: "/trip/pokhara-half-day-tour" },
-      { id: "1how0be6j", label: "Pokhara Full Day Tour", url: "/trip/pokhara-full-day-tour" },
-      { id: "fb13tg73a", label: "Nepal Deluxe Tour", url: "/trip/luxury-nepal-tour" },
-    ],
-  },
-  {
-    id: "ma2p4tq9r",
-    label: "About",
-    url: "/about",
-    children: [],
-  },
-  {
-    id: "9gaqgq3up",
-    label: "Contact",
-    url: "/contact",
-    children: [],
-  },
-];
-
 export function normalizeMenuUrl(rawUrl: string): string {
   if (!rawUrl) return "#";
   const trimmed = rawUrl.trim();
@@ -331,45 +265,22 @@ export function normalizeMenuUrl(rawUrl: string): string {
   return trimmed;
 }
 
-// Client-safe (uses NEXT_PUBLIC envs) — consumed by the client nav.
-export async function fetchMenuItems(): Promise<MenuItem[]> {
+// Server-side — consumed by the root layout. Maps the backend response
+// directly (auto ? autoItems : items); no frontend defaults, so the nav is
+// always whatever the backend returns.
+export const getMenuItems = cache(async (): Promise<MenuItem[]> => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL || ""}/menu`,
-      {
-        headers: { "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "" },
-        next: { revalidate: 3600 },
-      },
-    );
-    if (!res.ok) return DEFAULT_MENU_ITEMS;
+    const res = await apiFetch("/menu", { cache: "no-store" });
+    if (!res.ok) return [];
     const json = await res.json();
-
-    const extractItems = (obj: unknown): MenuItem[] => {
-      if (!obj || typeof obj !== "object") return [];
-      if (Array.isArray(obj)) return obj as MenuItem[];
-      const o = obj as Record<string, unknown>;
-      const data = o.data;
-      if (data && typeof data === "object" && !Array.isArray(data)) {
-        const dataItems = (data as Record<string, unknown>).items;
-        if (Array.isArray(dataItems)) {
-          const first = dataItems[0] as Record<string, unknown> | undefined;
-          const nested = first?.data;
-          if (nested && typeof nested === "object" && !Array.isArray(nested)) {
-            const innerItems = (nested as Record<string, unknown>).items;
-            if (Array.isArray(innerItems)) return innerItems as MenuItem[];
-          }
-          return dataItems as MenuItem[];
-        }
-      }
-      const items = o.items;
-      if (Array.isArray(items)) return items as MenuItem[];
-      return [];
+    const data = (json?.data ?? {}) as {
+      auto?: boolean;
+      items?: MenuItem[];
+      autoItems?: MenuItem[];
     };
-
-    const items = extractItems(json);
-    return items.length > 0 ? items : DEFAULT_MENU_ITEMS;
+    return data.auto ? (data.autoItems ?? []) : (data.items ?? []);
   } catch (error) {
     console.error("Failed to fetch menu items:", error);
-    return DEFAULT_MENU_ITEMS;
+    return [];
   }
-}
+});

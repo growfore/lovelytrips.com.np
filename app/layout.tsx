@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/siteConfig";
 import "./globals.css";
 import { Footer } from "@/components/site/footer";
 import { Nav } from "@/components/site/nav";
+import { getMenuItems } from "@/lib/api";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -45,15 +46,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const menuItems = await getMenuItems();
+
   return (
     <html lang="en" className={`${poppins.variable} ${satisfy.variable}`}>
       <body>
-        <Nav/>
+        <Nav items={menuItems} />
         {children}
         <Footer/>
       </body>

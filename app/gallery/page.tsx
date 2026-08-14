@@ -1,3 +1,6 @@
+import { RandomHeaderImage } from "@/components/site/random-header-image";
+import fs from "fs";
+import path from "path";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -6,25 +9,22 @@ export const metadata: Metadata = {
   description: "Browse our photo gallery of Nepal treks, mountains, and adventures.",
 };
 
-const images = [
-  { src: "/gallery-image.webp", alt: "Featured Nepal landscape" },
-  { src: "/assets/gallery1.webp", alt: "Himalayan trails" },
-  { src: "/assets/gallery2.webp", alt: "Mountain scenery" },
-  { src: "/assets/gallery3.webp", alt: "Trekking routes" },
-  { src: "/assets/gallery4.webp", alt: "Nepal landscapes" },
-  { src: "/assets/gallery5.webp", alt: "Adventure moments" },
-];
+const galleryDir = path.join(process.cwd(), "public", "gallery-images");
+const images = fs
+  .readdirSync(galleryDir)
+  .filter((f) => f.endsWith(".webp"))
+  .sort()
+  .map((f) => ({
+    src: `/gallery-images/${f}`,
+    alt: f.replace(/\.webp$/i, "").replace(/[_-]+/g, " "),
+  }));
 
 export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-paper overflow-x-clip">
       <section className="relative h-[50vh] min-h-[400px] w-full">
         <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
-          <img
-            src="/hero-image.webp"
-            alt="Nepal mountains"
-            className="w-full h-full object-cover"
-          />
+          <RandomHeaderImage />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/5" />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/10 to-transparent" />
         </div>

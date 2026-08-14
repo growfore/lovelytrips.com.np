@@ -5,13 +5,11 @@ import { PackageOverview } from "@/components/site/package-overview";
 import { PackageGallery } from "@/components/site/package-gallery";
 import { PackageItinerary } from "@/components/site/package-itinerary";
 import { PackageAltitudeChart } from "@/components/site/package-altitude-chart";
-import { PackagePricing } from "@/components/site/package-pricing";
 import { PackageIncludes } from "@/components/site/package-includes";
 import { PackageAdditionalInfo, PackageFaq } from "@/components/site/package-faq";
 import { PackageSectionNav } from "@/components/site/package-section-nav";
 import { MobileBookingBar } from "@/components/site/mobile-booking-bar";
 import { ScrollToTopButton } from "@/components/site/scroll-to-top-button";
-import { Footer } from "@/components/site/footer";
 
 export async function generateMetadata({
   params,
@@ -48,7 +46,6 @@ export default async function PackagePage({
         <PackageGallery activity={activity} />
         <PackageItinerary activity={activity} />
         <PackageAltitudeChart data={activity.altitudeChart} />
-        <PackagePricing activity={activity} />
         <PackageIncludes activity={activity} />
         <PackageAdditionalInfo activity={activity} />
         <PackageFaq activity={activity} />

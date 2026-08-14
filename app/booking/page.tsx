@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { siteConfig } from "@/lib/siteConfig";
 import { apiFetch } from "@/lib/api";
 import ContactForm from "@/components/booking-form";
 
@@ -23,5 +21,7 @@ export default async function BookingPage() {
       a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
   );
 
-  return <ContactForm packages={sortedPackages} />;
+  return <div className="pt-12">
+    <ContactForm packages={sortedPackages} />;
+  </div>
 }

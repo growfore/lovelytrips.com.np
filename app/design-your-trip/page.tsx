@@ -1,3 +1,4 @@
+import { RandomHeaderImage } from "@/components/site/random-header-image";
 import { Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { Toaster } from "sonner";
@@ -20,11 +21,7 @@ export default function DesignYourTrip() {
     <div className="min-h-screen bg-paper overflow-x-clip">
       <section className="relative h-[50vh] min-h-[400px] w-full">
         <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
-          <img
-            src="/hero-image.webp"
-            alt="Nepal mountains"
-            className="w-full h-full object-cover"
-          />
+          <RandomHeaderImage />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/5" />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/10 to-transparent" />
         </div>

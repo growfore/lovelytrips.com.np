@@ -10,7 +10,7 @@ export function MobileBookingBar({ price }: { price: string }) {
           <b className="text-lg">${price}</b>
           <span className="text-muted-ink">/person</span>
         </div>
-        <Button className="rounded-full px-6">
+        <Button asChild className="rounded-full px-6">
           <Link href={"/booking"}>Book Now</Link>
         </Button>
       </div>

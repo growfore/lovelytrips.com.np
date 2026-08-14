@@ -154,15 +154,8 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
           }}
         />
         <div className="container mx-auto relative z-10 text-center px-4">
-          <Badge
-            variant="secondary"
-            className="mb-4 text-sm font-medium px-3 py-1"
-          >
-            <LucideCompass className="w-3.5 h-3.5 mr-1.5" />
-            Book Your Trek
-          </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            Plan Your New Adventure
+            Book Your Adventure
           </h1>
           <p className="text-lg text-primary-foreground/80 max-w-xl mx-auto">
             Ready to explore? Let us help you plan your perfect trekking and

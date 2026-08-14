@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ActivityData } from "@/lib/api";
 
 export function PackagePricing({ activity }: { activity: ActivityData }) {
@@ -23,9 +24,9 @@ export function PackagePricing({ activity }: { activity: ActivityData }) {
           />
         )}
         <div className="mt-10">
-          <button className="border border-white text-white px-10 py-3.5 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:bg-white hover:text-ink transition-all">
+          <Link href="/booking" className="inline-block border border-white text-white px-10 py-3.5 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:bg-white hover:text-ink transition-all">
             Book This Trip
-          </button>
+          </Link>
         </div>
       </div>
     </section>
