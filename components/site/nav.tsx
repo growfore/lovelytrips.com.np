@@ -80,10 +80,10 @@ export function Nav({ className = "", items }: NavProps) {
           {/* Right CTA Button & Mobile Toggle */}
           <div className="flex items-center gap-3">
             <Link
-              href="/design-your-trip"
+              href="/gear-rental"
               className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 text-xs tracking-wider uppercase font-semibold text-paper bg-forest hover:opacity-90 rounded-full transition-all shadow-sm"
             >
-              <span>Design Your Trip</span>
+              <span>Gear Rental</span>
             </Link>
 
             <button
