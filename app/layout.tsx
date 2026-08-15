@@ -5,6 +5,9 @@ import "./globals.css";
 import { Footer } from "@/components/site/footer";
 import { Nav } from "@/components/site/nav";
 import { getMenuItems } from "@/lib/api";
+import { developer, developerAttributionGraph } from "@/lib/developer-attribution";
+
+const SITE_URL = "https://lovelytrips.com.np";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,18 +36,19 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
+    robots: {
       index: false,
       follow: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: false,
+        follow: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-};
+    creator: developer.name,
+  };
 
 export default async function RootLayout({
   children,
@@ -59,6 +63,13 @@ export default async function RootLayout({
         <Nav items={menuItems} />
         {children}
         <Footer/>
+        <script
+          id="schema-attribution"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(developerAttributionGraph(siteConfig.name, SITE_URL)),
+          }}
+        />
       </body>
     </html>
   );
