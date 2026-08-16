@@ -3,15 +3,6 @@ export const developerProfileUrl = "https://kshetritej.com.np";
 const LINKEDIN_URL = "https://www.linkedin.com/in/kshetritej/";
 const GITHUB_URL = "https://github.com/kshetritej";
 
-export const developerPerson = {
-  "@type": "Person",
-  "@id": `${developerProfileUrl}/#person`,
-  name: "Tej Kshetri",
-  jobTitle: "Full Stack Engineer",
-  url: developerProfileUrl,
-  sameAs: [LINKEDIN_URL, GITHUB_URL],
-} as const;
-
 export const growforeOrganization = {
   "@type": "Organization",
   "@id": "https://growfore.com/#organization",
@@ -19,12 +10,33 @@ export const growforeOrganization = {
   url: "https://growfore.com",
 } as const;
 
-export function developerAttributionGraph(siteName: string, siteUrl: string) {
+export const developerPerson = {
+  "@type": "Person",
+  "@id": `${developerProfileUrl}/#person`,
+  name: "Tej Kshetri",
+  jobTitle: "Full Stack Engineer",
+  url: developerProfileUrl,
+  sameAs: [LINKEDIN_URL, GITHUB_URL],
+  affiliation: { "@id": growforeOrganization["@id"] },
+} as const;
+
+export function developerAttributionGraph(
+  siteName: string,
+  siteUrl: string,
+  clientName: string = siteName,
+) {
+  const organizationId = `${siteUrl}/#organization`;
   const websiteId = `${siteUrl}/#website`;
   const webpageId = `${siteUrl}/#webpage`;
   return {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: clientName,
+        url: siteUrl,
+      },
       growforeOrganization,
       developerPerson,
       {
@@ -32,6 +44,7 @@ export function developerAttributionGraph(siteName: string, siteUrl: string) {
         "@id": websiteId,
         name: siteName,
         url: siteUrl,
+        publisher: { "@id": organizationId },
         creator: [
           { "@id": growforeOrganization["@id"] },
           { "@id": developerPerson["@id"] },
