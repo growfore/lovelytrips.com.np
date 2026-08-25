@@ -6,10 +6,10 @@ import { useEffect, useRef, useState } from "react";
 
 const SECTIONS = [
   { href: "#overview", label: "Overview" },
-  { href: "#gallery", label: "Gallery" },
   { href: "#itinerary", label: "Itinerary" },
   { href: "#includes", label: "Includes" },
   { href: "#info", label: "Info" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#faq", label: "FAQ" },
 ];
 
