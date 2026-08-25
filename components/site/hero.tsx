@@ -17,7 +17,7 @@ export function Hero() {
           </defs>
           <text className="font-script text-8xl " fill="white" textAnchor="middle">
             <textPath href="#hero-curve" startOffset="50%">
-              Hikes into the Mountains
+              Journey into the Mountains
             </textPath>
           </text>
         </svg>

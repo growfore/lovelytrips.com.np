@@ -46,8 +46,8 @@ export default async function PackagePage({
         <PackageItinerary activity={activity} />
         <PackageAltitudeChart data={activity.altitudeChart} />
         <PackageIncludes activity={activity} />
-        <PackageAdditionalInfo activity={activity} />
         <PackageGallery activity={activity} />
+        <PackageAdditionalInfo activity={activity} />
         <PackageFaq activity={activity} />
         <MobileBookingBar price={activity.price.toString()} />
         <ScrollToTopButton />
