@@ -15,7 +15,7 @@ export function Hero() {
           <defs>
             <path id="hero-curve" d="M 50 60 C 300 30, 700 30, 950 70" fill="none" />
           </defs>
-          <text className="font-script text-8xl " fill="white" textAnchor="middle">
+          <text className="font-script text-7xl " fill="white" textAnchor="middle">
             <textPath href="#hero-curve" startOffset="50%">
               Journey into the Mountains
             </textPath>
