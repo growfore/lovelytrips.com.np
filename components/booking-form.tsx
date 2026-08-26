@@ -100,35 +100,30 @@ export function Form_Component({ packages }: { packages: TPackageDetails[] }) {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/email/send`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "",
-          },
-          body: JSON.stringify({
-            from: data.email,
-            to: "essencettt@gmail.com",
-            subject: `Website Booking: Inquiry from ${data.fullName} — ${data.destination}`,
-            text: [
-              `Name:              ${data.fullName}`,
-              `Email:             ${data.email}`,
-              `Phone:             ${data.phone || "Not provided"}`,
-              `Destination:       ${data.destination}`,
-              `Start Date:        ${data.startDate}`,
-              `Group Size:        ${data.groupSize}`,
-              `Experience Level:  ${data.experienceLevel || "Not specified"}`,
-              ``,
-              `Message:`,
-              data.message,
-            ].join("\n"),
-            html: buildInquiryEmail(data),
-          }),
-          cache: "no-store",
+      const res = await fetch("/api/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          replyTo: data.email,
+          subject: `Website Booking: Inquiry from ${data.fullName} — ${data.destination}`,
+          text: [
+            `Name:              ${data.fullName}`,
+            `Email:             ${data.email}`,
+            `Phone:             ${data.phone || "Not provided"}`,
+            `Destination:       ${data.destination}`,
+            `Start Date:        ${data.startDate}`,
+            `Group Size:        ${data.groupSize}`,
+            `Experience Level:  ${data.experienceLevel || "Not specified"}`,
+            ``,
+            `Message:`,
+            data.message,
+          ].join("\n"),
+          html: buildInquiryEmail(data),
+        }),
+        cache: "no-store",
+      });
       if (!res.ok) throw new Error(`API returned ${res.status}`);
       setSubmitSuccess(true);
       form.reset();

@@ -68,22 +68,17 @@ export default function ContactPage() {
         data.message,
       ].join("\n");
 
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL || ""}/email/send`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "",
-          },
-          body: JSON.stringify({
-            from: "noreply@lovelytrips.com.np",
-            to: siteConfig.email,
-            subject: `Contact form message from ${data.name}`,
-            text,
-          }),
+      const res = await fetch("/api/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          replyTo: data.email,
+          subject: `Contact form message from ${data.name}`,
+          text,
+        }),
+      });
       if (!res.ok) throw new Error(`API returned ${res.status}`);
       setSent(true);
     } catch {
