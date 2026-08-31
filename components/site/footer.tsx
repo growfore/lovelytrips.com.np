@@ -45,7 +45,7 @@ export async function Footer() {
 
   return (
     <footer className="relative min-h-[40vh] overflow-x-clip flex items-end -mt-32">
-      <div className="pointer-events-none absolute inset-0 bg-white [mask-image:url(/footer-mask.webp)] [-webkit-mask-image:url(/footer-mask.webp)] [mask-mode:luminance] [-webkit-mask-mode:luminance] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]" />
+      <div className="pointer-events-none absolute inset-0 bg-[#F6F6EE] [mask-image:url(/footer-mask.webp)] [-webkit-mask-image:url(/footer-mask.webp)] [mask-mode:luminance] [-webkit-mask-mode:luminance] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]" />
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-8 flex flex-col items-center gap-6">
         <div className="flex items-center gap-3">
           {socials.map((s) => (
