@@ -1,6 +1,6 @@
 export function ContactForm() {
   return (
-    <section className="relative min-h-[80vh] py-24 px-6 bg-[url(/annapurna-range-as-seen-from-pokhara.webp)] bg-cover bg-center before:absolute before:inset-0 before:bg-gradient-to-b before:from-white before:from-10% before:via-transparent before:via-30% before:to-black/70 before:to-90% flex items-center justify-center -mb-42">
+    <section className="relative min-h-[80vh] px-6 bg-[url(/annapurna-range-as-seen-from-pokhara.webp)] bg-cover bg-center before:absolute before:inset-0 before:bg-gradient-to-b before:from-[#F6F6EE] before:from-10% before:via-transparent before:via-30% before:to-black/70 before:to-90% flex items-center justify-center ">
       {/*<div className="relative z-10 max-w-md mx-auto text-center text-white">
         <h2 className="font-script text-3xl md:text-4xl mb-8">
           &mdash; Contact Us &mdash;

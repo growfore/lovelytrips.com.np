@@ -71,7 +71,7 @@ export function PackageItinerary({ activity }: { activity: ActivityData }) {
                       dangerouslySetInnerHTML={{ __html: day.description }}
                     />
                     {day.dayFeaturedImages.length > 0 && (
-                      <div className="mt-4 space-y-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                      <div className="mt-4 space-y-4 grid sm:grid-cols-2 md:grid-cols-3 gap-2">
                         {day.dayFeaturedImages.map((fi, i) => {
                           const [capTitle, ...capDesc] = fi.alt.split(":: ");
                           return (
@@ -86,9 +86,9 @@ export function PackageItinerary({ activity }: { activity: ActivityData }) {
                               </div>
                               {capTitle && (
                                 <div className="mt-2 text-xs leading-relaxed">
-                                  <span className="font-semibold text-ink">{capTitle}</span>
+                                  <p className="font-semibold text-ink">{capTitle}</p>
                                   {capDesc.length > 0 && (
-                                    <span className="text-muted-ink"> — {capDesc.join(":: ")}</span>
+                                    <span className="text-muted-ink">{capDesc.join(":: ")}</span>
                                   )}
                                 </div>
                               )}
