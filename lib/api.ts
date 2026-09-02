@@ -18,7 +18,7 @@ export async function apiFetch(
   path: string,
   init?: RequestInit,
 ): Promise<Response> {
-  const key = process.env.API_KEY || process.env.NEXT_PUBLIC_API_KEY || "";
+  const key = process.env.API_KEY || "";
   const h = new Headers(init?.headers);
   if (key) h.set("X-Api-Key", key);
   return fetch(`${API_BASE}${path}`, { ...init, headers: h });
@@ -253,6 +253,9 @@ export async function fetchBlogBySlug(slug: string): Promise<Blog> {
 export function imgUrl(path: string): string {
   if (!path) return "";
   if (/^https?:\/\//i.test(path)) return path;
+  // /uploads/* is proxied through this app origin (next.config rewrites) to
+  // avoid the API's Cross-Origin-Resource-Policy: same-origin blocking images.
+  if (path.startsWith("/uploads/")) return path;
   if (path.startsWith("/")) return `${API_ORIGIN}${path}`;
   return path;
 }

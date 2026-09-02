@@ -21,7 +21,9 @@ export default async function BookingPage() {
       a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
   );
 
-  return <div className="pt-12">
-    <ContactForm packages={sortedPackages} />;
-  </div>
+  return (
+    <div className="pt-12">
+      <ContactForm packages={sortedPackages} />
+    </div>
+  );
 }

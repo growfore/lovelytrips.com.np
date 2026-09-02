@@ -18,39 +18,8 @@ interface NavProps {
   items?: MenuItem[];
 }
 
-// Static frontend pages grouped under a "More" dropdown. If the backend menu
-// already has a "More" dropdown, they're merged into it instead of duplicating
-// the trigger; frontend links that collide with a backend url are dropped.
-const FRONTEND_LINKS: MenuItem[] = [
-  { id: "fe-home", label: "Home", url: "/" },
-  { id: "fe-explore", label: "Explore", url: "/explore" },
-  { id: "fe-blog", label: "Blog", url: "/blog" },
-  { id: "fe-gallery", label: "Gallery", url: "/gallery" },
-  { id: "fe-about", label: "About", url: "/about" },
-  { id: "fe-contact", label: "Contact", url: "/contact" },
-];
-
-function mergeFrontendLinks(items: MenuItem[]): MenuItem[] {
-  const backendMore = items.find(
-    (i) => i.label === "More" && i.children?.length,
-  );
-  const taken = new Set(
-    items.flatMap((i) => [
-      normalizeMenuUrl(i.url),
-      ...(i.children ?? []).map((c) => normalizeMenuUrl(c.url)),
-    ]),
-  );
-  const links = FRONTEND_LINKS.filter((c) => !taken.has(normalizeMenuUrl(c.url)));
-  if (links.length === 0) return items;
-  if (backendMore) {
-    backendMore.children = [...(backendMore.children ?? []), ...links];
-    return items;
-  }
-  return [...items, { id: "fe-more", label: "More", url: "", children: links }];
-}
-
 export function Nav({ className = "", items }: NavProps) {
-  const navItems = mergeFrontendLinks(items ?? []);
+  const navItems = items ?? [];
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
