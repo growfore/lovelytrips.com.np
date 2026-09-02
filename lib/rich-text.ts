@@ -6,8 +6,13 @@ export const richTextClassNames = `text-[15px] leading-relaxed text-muted-ink fo
   [&_a]:text-forest [&_a]:underline
   [&_h2]:text-2xl [&_h3]:text-xl [&_h2]:text-ink [&_h3]:text-ink [&_h2]:font-body [&_h3]:font-body [&_h2]:font-semibold [&_h3]:font-semibold [&_h2]:mt-8 [&_h3]:mt-6 [&_h2]:mb-3 [&_h3]:mb-2
   [&_img]:w-full [&_img]:rounded-xl [&_img]:my-6
-  [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ul]:my-4
-  [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_ol]:my-4
+  [&_ul]:list-disc [&_ul]:pl-8 [&_ul]:my-4 [&_ul]:space-y-1.5
+  [&_ol]:list-decimal [&_ol]:pl-8 [&_ol]:my-4 [&_ol]:space-y-1.5
+  [&_ul_ul]:list-circle [&_ul_ul]:my-2 [&_ul_ul]:space-y-1
+  [&_ol_ol]:list-lower-alpha [&_ol_ol]:my-2 [&_ol_ol]:space-y-1
+  [&_li]:pl-3 [&_li]:indent-0 [&_li_ul]:mt-2 [&_li_ol]:mt-2
+  [&_li_p]:mb-0 [&_li_p:last-child]:mb-0
+  [&_ul~p]:pl-11 [&_ol~p]:pl-11
   [&_blockquote]:border-l-2 [&_blockquote]:border-forest [&_blockquote]:pl-4 [&_blockquote]:my-6 [&_blockquote]:italic
   [&_table]:w-full [&_table]:border-collapse [&_table]:my-6
   [&_th]:text-ink [&_th]:font-semibold [&_th]:text-left [&_th]:py-3 [&_th]:px-4 [&_th]:border-b [&_th]:border-ink/15
