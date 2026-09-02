@@ -99,6 +99,9 @@ export async function Footer() {
             </div>
           </div>
         </div>
+        <div className="text-xs flex">
+          <p>&copy; Lovely Trips Nepal {new Date().getFullYear()} . All Rights Reserved. Powered by <a href="https://tripeleven.com" target="_blank" className="underline">Tripeleven</a>.</p>
+        </div>
       </div>
     </footer>
   );
