@@ -35,7 +35,7 @@ export default async function InfoPage({
 
   return (
     <div className="min-h-screen bg-paper overflow-x-clip">
-      <section className="relative h-[50vh] min-h-[400px] w-full">
+      <section className="relative h-[50vh] min-h-[500px] w-full">
         <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
           {page.coverImage ? (
             <img
