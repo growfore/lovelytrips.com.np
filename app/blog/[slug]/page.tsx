@@ -39,7 +39,7 @@ export default async function BlogPost({
 
   return (
     <div className="min-h-screen bg-paper overflow-x-clip">
-      <section className="relative h-[60vh] min-h-[600px] w-full">
+      <section className="relative h-[70vh] min-h-[700px] w-full">
         <div className="absolute inset-0 [mask-image:url(/hero-mask-2.webp)] [-webkit-mask-image:url(/hero-mask-2.webp)] [mask-size:100%_100%] [-webkit-mask-size:100%_100%] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat]">
           {blog.coverImage ? (
             <img
